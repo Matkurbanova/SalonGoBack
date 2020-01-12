@@ -1,6 +1,4 @@
 package kg.salongo.SalonGoBack.jdbc;
-
-import kg.salongo.SalonGoBack.entity.Service;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
