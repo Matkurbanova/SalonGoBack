@@ -1,19 +1,19 @@
 package kg.salongo.SalonGoBack.entity;
 
-public class Service {
+public class ServiceSalon {
 private int Id;
 private int SalonId;
-private int SubTypeServiceId;
+private int SubCategoryId;
 private String Price;
 private String Description;
 private String Image;
-    public Service(){
+    public ServiceSalon(){
 
     }
-    public Service(int Id,int SalonId,int SubTypeServiceId,String Price,String Description,String Image){
+    public ServiceSalon(int Id, int SalonId, int SubCategoryId, String Price, String Description, String Image){
         this.Id=Id;
         this.SalonId=SalonId;
-        this.SubTypeServiceId=SubTypeServiceId;
+        this.SubCategoryId=SubCategoryId;
         this.Price=Price;
         this.Description=Description;
         this.Image=Image;   }
@@ -34,13 +34,7 @@ private String Image;
         SalonId = salonId;
     }
 
-    public int getSubTypeServiceId() {
-        return SubTypeServiceId;
-    }
 
-    public void setSubTypeServiceId(int subTypeServiceId) {
-        SubTypeServiceId = subTypeServiceId;
-    }
 
     public String getPrice() {
         return Price;
@@ -67,10 +61,10 @@ private String Image;
     }
     @Override
     public String toString() {
-        return "Service{" +
+        return "ServiceSalon{" +
                 "Id=" + Id +
                 ", SalonId='" + SalonId + '\'' +
-                "  SubTypeServiceId=" + SubTypeServiceId +
+                "  SubCategoryId=" + SubCategoryId +
                 ", Price='" + Price + '\'' +
                 "  Description=" + Description +
                 ", Image='" + Image +

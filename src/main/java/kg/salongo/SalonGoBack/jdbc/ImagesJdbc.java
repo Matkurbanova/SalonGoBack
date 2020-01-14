@@ -1,7 +1,6 @@
 package kg.salongo.SalonGoBack.jdbc;
 
 import kg.salongo.SalonGoBack.entity.Images;
-import kg.salongo.SalonGoBack.entity.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

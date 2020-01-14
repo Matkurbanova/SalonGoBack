@@ -1,17 +1,17 @@
-Create TABLE TypeService
+Create TABLE Category
 (
   id int not null auto_increment primary key,
-  nameService varchar(150) not null,
+  nameCategory varchar(150) not null,
   image varchar(150) not null
 
 );
 
-Create TABLE SubTypeService
+Create TABLE SubCategory
 (
 Id INT PRIMARY KEY AUTO_INCREMENT,
-    TypeServiceId INT,
+    CategoryId INT,
     name varchar(150) not null,
-FOREIGN KEY (TypeServiceId)  REFERENCES typeservice (Id)
+FOREIGN KEY (CategoryId)  REFERENCES category (Id)
 
 );
 
@@ -25,7 +25,7 @@ Create TABLE UserSalon
   address varchar(150) not null,
   description varchar(255) not null,
   instaLogin varchar(150) not null,
-  imageLogo varchar(150) not null
+  logoSalon varchar(150) not null
 
 
 );
@@ -42,32 +42,32 @@ Create TABLE UserPersonal
 
 );
 
-Create TABLE Service
+Create TABLE ServiceSalon
 (
 Id INT PRIMARY KEY AUTO_INCREMENT,
     SalonId INT,
-    SubTypeServiceId INT,
+    SubCategoryId INT,
     Price varchar(150),
     Description varchar (250),
     Image varchar(150),
 FOREIGN KEY (SalonId)  REFERENCES UserSalon (Id),
-FOREIGN KEY (SubTypeServiceId)  REFERENCES SubTypeService (Id)
+FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
 );
 
 Create TABLE Saved
 (
     UserId INT,
-    ServiceId INT,
+    ServiceSalonId INT,
 FOREIGN KEY (UserId)  REFERENCES userpersonal (Id),
-FOREIGN KEY (ServiceId)  REFERENCES service (Id)
+FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
 );
 
 Create TABLE Images
 (
 id int not null auto_increment primary key,
-    ServiceId INT,
+    ServiceSalonId INT,
     Image varchar(150),
-FOREIGN KEY (ServiceId)  REFERENCES service (Id)
+FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
 );
 
 Create TABLE WorkTime

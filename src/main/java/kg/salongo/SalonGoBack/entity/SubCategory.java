@@ -1,14 +1,14 @@
 package kg.salongo.SalonGoBack.entity;
 
-public class SubTypeService {
+public class SubCategory {
 private int id;
 private String name;
 
 
-public SubTypeService(){
+public SubCategory(){
 
 }
-public SubTypeService(int id, String name){
+public SubCategory(int id, String name){
 this.id=id;
 this.name=name;
 }
@@ -28,7 +28,7 @@ public void setId(int id) {
     }
     @Override
     public String toString() {
-        return "SubTypesService{" +
+        return "SubCategory{" +
                 "id=" + id +
                 ", name='" + name +
                 '}';

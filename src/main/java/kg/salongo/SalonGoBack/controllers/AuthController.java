@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     @Autowired
-    UserPersonalJdbc userJdbc;
+    UserPersonalJdbc userPersonalJdbcJdbc;
 
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
     public Response<UserPersonal> login(@RequestParam("login") String login) {
         try {
-            UserPersonal userPersonal = userJdbc.findByLogin(login);
+            UserPersonal userPersonal = userPersonalJdbcJdbc.findByLogin(login);
             return new Response(userPersonal);
         } catch (Exception ex) {
             return new Response(-1, "No user with login " + login);

@@ -1,15 +1,18 @@
 package kg.salongo.SalonGoBack.entity;
 
-public class TypeService {
+import javax.persistence.Column;
+
+public class Category {
     private int id;
-    private String nameService;
+    @Column(name = "nameCategory")
+    private String nameCategory;
     private String image;
-    public TypeService(){
+    public Category(){
 
     }
-    public TypeService(int id,String nameService,String image){
+    public Category(int id, String nameCategory, String image){
         this.id=id;
-        this.nameService=nameService;
+        this.nameCategory=nameCategory;
         this.image=image;
     }
     public int getId(){
@@ -19,13 +22,15 @@ public class TypeService {
         this.id = id;
 
     }
-    public String getNameService() {
-        return nameService;
+
+    public String getNameCategory() {
+        return nameCategory;
     }
 
-    public void setNameService(String nameServicee) {
-        this.nameService = nameServicee;
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
+
     public String getImage(){
         return image;
     }
@@ -34,9 +39,9 @@ public class TypeService {
     }
     @Override
     public String toString() {
-        return "TypeService{" +
+        return "Category{" +
                 "id=" + id +
-                ", nameService='" + nameService + '\'' +
+                ", nameCategory='" + nameCategory + '\'' +
                 ", image='" + image +
                 '}';
     }

@@ -9,12 +9,12 @@ public class UserSalon {
     private String address;
     private String description;
     private String instaLogin;
-    private String imageLogo;
+    private String logoSalon;
 
     public UserSalon(){
 
     }
-    public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String imageLogo){
+    public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String logoSalon){
         this.id=id;
         this.login=login;
         this.name=name;
@@ -23,7 +23,7 @@ public class UserSalon {
         this.address=address;
         this.description=description;
         this.instaLogin=instaLogin;
-        this.imageLogo=imageLogo;
+        this.logoSalon=logoSalon;
     }
     public int getId(){
         return id;
@@ -87,13 +87,14 @@ public String getPhone(){
         this.instaLogin = instaLogin;
     }
 
-    public String getImageLogo() {
-        return imageLogo;
+    public String getLogoSalon() {
+        return logoSalon;
     }
 
-    public void setImageLogo(String imageLogo) {
-        this.imageLogo = imageLogo;
+    public void setLogoSalon(String logoSalon) {
+        this.logoSalon = logoSalon;
     }
+
     @Override
     public String toString() {
         return "UserSalon{" +
@@ -105,7 +106,7 @@ public String getPhone(){
                 ", address='" + address + '\'' +
                 "description=" + description +
                 ", instaLogin='" + instaLogin + '\'' +
-                ", imageLogo=" + imageLogo +
+                ", logoSalon=" + logoSalon +
                 '}';
     }
 }

@@ -11,12 +11,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SalonGoBackApplication {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	SubTypeServiceJdbc subTypesServiceJdbc;
-	TypeServiceJdbc typeServiceJdbc;
+	SubCategoryJdbc subCategoryJdbc;
+	CategoryJdbc categoryJdbcJdbc;
 	UserPersonalJdbc userPersonalJdbc;
 	UserSalonJdbc userSalonJdbc;
 	WorkTimeJdbc workTimeJdbc;
-	ServiceJdbc serviceJdbc;
+	ServiceSalonJdbc serviceJdbc;
 	SavedJdbc savedJdbc;
 	ImagesJdbc imagesJdbc;
 
@@ -26,10 +26,10 @@ public class SalonGoBackApplication {
 	}
 
 	public void run(String... args) throws Exception {
-		logger.info("All Users {}", subTypesServiceJdbc.findAll());
-		logger.info("User with id 10003 -> {}", subTypesServiceJdbc.findById(10003));
+		logger.info("All Users {}", subCategoryJdbc.findAll());
+		logger.info("User with id 10003 -> {}", subCategoryJdbc.findById(10003));
 		logger.info("Deleting user with id 10002, # of deleted records = {}",
-				subTypesServiceJdbc.deleteById(10002));
+				subCategoryJdbc.deleteById(10002));
 	}
 //	 {
 //		logger.info("All Users {}", typeServiceJdbc.findAll());

@@ -1,8 +1,8 @@
 package kg.salongo.SalonGoBack.controllers;
 
 import kg.salongo.SalonGoBack.Response;
-import kg.salongo.SalonGoBack.entity.TypeService;
-import kg.salongo.SalonGoBack.jdbc.TypeServiceJdbc;
+import kg.salongo.SalonGoBack.entity.Category;
+import kg.salongo.SalonGoBack.jdbc.CategoryJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class TypeController {
+public class CategoryController {
 
     @Autowired
-    TypeServiceJdbc typeServiceJdbc;
+    CategoryJdbc categoryJdbcJdbc;
 
-    @RequestMapping("/api/types")
-    public Response<List<TypeService>> getTypes() {
-        return new Response(typeServiceJdbc.findAll());
+    @RequestMapping("/api/category")
+    public Response<List<Category>> getTypes() {
+        return new Response(categoryJdbcJdbc.findAll());
     }
 
 }

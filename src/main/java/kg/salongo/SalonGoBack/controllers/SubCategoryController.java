@@ -1,8 +1,8 @@
 package kg.salongo.SalonGoBack.controllers;
 
 import kg.salongo.SalonGoBack.Response;
-import kg.salongo.SalonGoBack.entity.SubTypeService;
-import kg.salongo.SalonGoBack.jdbc.SubTypeServiceJdbc;
+import kg.salongo.SalonGoBack.entity.SubCategory;
+import kg.salongo.SalonGoBack.jdbc.SubCategoryJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class SubTypeController {
+public class SubCategoryController {
     @Autowired
-    SubTypeServiceJdbc subTypesServiceJdbc;
-    @RequestMapping("/api/subtypes")
-    public Response<List<SubTypeService>> getTypes() {
-        return new Response(subTypesServiceJdbc.findAll());
+    SubCategoryJdbc subCategoryJdbc;
+    @RequestMapping("/api/subcategory")
+    public Response<List<SubCategory>> getTypes() {
+        return new Response(subCategoryJdbc.findAll());
     }
 
 }
