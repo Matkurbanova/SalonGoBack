@@ -17,7 +17,7 @@ VALUES(1 ,'1000 сом','Наращивание ногтей Аквариумн�
 UPDATE ServiceSalon SET SalonId = '1' WHERE ID = 1;
 UPDATE ServiceSalon SET SubCategoryId = '1' WHERE ID = 1;
 
-INSERT INTO Images(Id,ServiceSalonId,Image)
+INSERT INTO ImagesSalon(Id,ServiceSalonId,Image)
 VALUES(1,1,'akvarium nails.jpg');
 
 INSERT INTO Saved(UserId,ServiceSalonId)

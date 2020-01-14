@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ServiceController {
+public class ServiceSalonController {
         @Autowired
-        ServiceSalonJdbc serviceJdbc;
+        ServiceSalonJdbc serviceSalonJdbc;
 
-        @RequestMapping("/api/service")
+        @RequestMapping("/api/servicesalon")
         public Response<List<ServiceSalon>> getTypes() {
-            return new Response(serviceJdbc.findAll());
+            return new Response(serviceSalonJdbc.findAll());
         }
 
     }

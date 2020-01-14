@@ -1,15 +1,15 @@
 package kg.salongo.SalonGoBack.entity;
 
-public class Images {
+public class ImagesSalon {
     private int id;
-    private int ServiceId;
+    private int ServiceSalonId;
     private String Image;
-    public Images(){
+    public ImagesSalon(){
 
     }
-    public Images(int id,int ServiceId,String Image){
+    public ImagesSalon(int id, int ServiceSalonId, String Image){
         this.id=id;
-        this.ServiceId=ServiceId;
+        this.ServiceSalonId=ServiceSalonId;
         this.Image=Image;
 
     }
@@ -22,12 +22,12 @@ public class Images {
         this.id = id;
     }
 
-    public int getServiceId() {
-        return ServiceId;
+    public int getServiceSalonId() {
+        return ServiceSalonId;
     }
 
-    public void setServiceId(int serviceId) {
-        ServiceId = serviceId;
+    public void setServiceSalonId(int serviceSalonId) {
+        ServiceSalonId = serviceSalonId;
     }
 
     public String getImage() {
@@ -37,12 +37,13 @@ public class Images {
     public void setImage(String image) {
         Image = image;
     }
+
     @Override
     public String toString() {
-        return "Images{" +
+        return "ImagesSalon{" +
                 "id=" + id +
-                "ServiceId=" + ServiceId +
-                ", Image='" + Image +
+                ", ServiceSalonId=" + ServiceSalonId +
+                ", Image='" + Image + '\'' +
                 '}';
     }
 }

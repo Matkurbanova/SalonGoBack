@@ -58,11 +58,12 @@ Create TABLE Saved
 (
     UserId INT,
     ServiceSalonId INT,
+
 FOREIGN KEY (UserId)  REFERENCES userpersonal (Id),
 FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
 );
 
-Create TABLE Images
+Create TABLE ImagesSalon
 (
 id int not null auto_increment primary key,
     ServiceSalonId INT,
@@ -80,3 +81,36 @@ Create TABLE WorkTime
     PRIMARY KEY(id),
     FOREIGN KEY (SalonId)  REFERENCES usersalon (Id)
 );
+
+Create TABLE UserMaster
+(
+  id int not null auto_increment primary key,
+  typeStatus int(2) not null,
+  login varchar(150) not null,
+  name varchar(150) not null,
+  password varchar(255) not null,
+  phone varchar(150) not null,
+  workExperienceYear varchar(150) not null,
+  ImageMaster varchar(150) not null,
+  Instagram varchar(150) not null
+
+
+);
+Create TABLE ServiceMaster
+(
+Id INT PRIMARY KEY AUTO_INCREMENT,
+    UserMasterId INT,
+    Price varchar(150),
+    Description varchar (250),
+    Image varchar(150),
+FOREIGN KEY (UserMasterId)  REFERENCES UserMaster (Id)
+);
+
+Create TABLE ImagesMaster
+(
+id int not null auto_increment primary key,
+    ServiceMasterId INT,
+    Image varchar(150),
+FOREIGN KEY (ServiceMasterId)  REFERENCES ServiceMaster (Id)
+);
+

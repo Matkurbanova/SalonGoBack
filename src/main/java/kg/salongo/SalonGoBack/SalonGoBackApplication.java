@@ -18,7 +18,10 @@ public class SalonGoBackApplication {
 	WorkTimeJdbc workTimeJdbc;
 	ServiceSalonJdbc serviceJdbc;
 	SavedJdbc savedJdbc;
-	ImagesJdbc imagesJdbc;
+	ImagesSalonJdbc imagesSalonJdbc;
+	UserMasterJdbc userMasterJdbc;
+	ServiceMasterJdbc serviceMasterJdbc;
+	ImagesMasterJdbc imagesMasterJdbc;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SalonGoBackApplication.class, args);
