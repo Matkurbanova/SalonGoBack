@@ -1,8 +1,16 @@
 INSERT INTO Category(id,nameCategory,image)
-VALUES(1,'Ногтевой сервис','ManikurFoto.png');
+VALUES
+(1,'Ногтевой сервис','nails.jpg'),
+(2,'Брови','brovi.jpg'),
+(3,'Ресницы','resnis.jpg'),
+(4,'Макияж','makeUp.jpg');
+
 
 INSERT INTO SubCategory(id,name,CategoryId)
-VALUES(01,'Ногтевой сервис',1);
+VALUES
+(1,'Ногтевой сервис',1),
+(2,'Коррекция бровей',2);
+
 
 INSERT INTO UserSalon(id,login,name,password,phone,address,description,instaLogin,logoSalon)
 VALUES(1,'bermet03','Bermet','123','+996770595959','5-й микрорайон, 63Б

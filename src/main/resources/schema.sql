@@ -3,7 +3,6 @@ Create TABLE Category
   id int not null auto_increment primary key,
   nameCategory varchar(150) not null,
   image varchar(150) not null
-
 );
 
 Create TABLE SubCategory
@@ -92,9 +91,7 @@ Create TABLE UserMaster
   phone varchar(150) not null,
   workExperienceYear varchar(150) not null,
   ImageMaster varchar(150) not null,
-  Instagram varchar(150) not null
-
-
+  Instagram varchar(150)
 );
 Create TABLE ServiceMaster
 (

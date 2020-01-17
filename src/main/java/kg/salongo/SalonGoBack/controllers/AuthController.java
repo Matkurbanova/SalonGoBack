@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 @RestController
 public class AuthController {
 
@@ -19,7 +18,7 @@ public class AuthController {
     UserPersonalJdbc userPersonalJdbcJdbc;
 
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
-    public Response<UserPersonal> login(@RequestParam("login") String login) {
+    public Response<UserPersonal> login(@RequestParam("login") String login, @RequestParam("password") String password) {
         try {
             UserPersonal userPersonal = userPersonalJdbcJdbc.findByLogin(login);
             return new Response(userPersonal);
