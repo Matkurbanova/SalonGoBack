@@ -111,3 +111,14 @@ id int not null auto_increment primary key,
 FOREIGN KEY (ServiceMasterId)  REFERENCES ServiceMaster (Id)
 );
 
+Create TABLE Promo
+(
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    SalonId INT,
+    UserMasterId INT,
+    newPrice varchar(150),
+    oldPrice varchar(150),
+    promoDescription varchar (250),
+    promoImage varchar(150),
+FOREIGN KEY (UserMasterId)  REFERENCES UserMaster (Id)
+);
