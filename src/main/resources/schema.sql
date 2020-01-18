@@ -91,6 +91,7 @@ Create TABLE UserMaster
   phone varchar(150) not null,
   workExperienceYear varchar(150) not null,
   ImageMaster varchar(150) not null,
+  Description varchar(550) not null,
   Instagram varchar(150)
 );
 Create TABLE ServiceMaster
