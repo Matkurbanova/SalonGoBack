@@ -58,8 +58,10 @@ Create TABLE Saved
     UserId INT,
     ServiceSalonId INT,
 
+
 FOREIGN KEY (UserId)  REFERENCES userpersonal (Id),
 FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
+
 );
 
 Create TABLE ImagesSalon
@@ -98,10 +100,12 @@ Create TABLE ServiceMaster
 (
 Id INT PRIMARY KEY AUTO_INCREMENT,
     UserMasterId INT,
+    SubCategoryId INT,
     Price varchar(150),
     Description varchar (250),
     Image varchar(150),
-FOREIGN KEY (UserMasterId)  REFERENCES UserMaster (Id)
+FOREIGN KEY (UserMasterId)  REFERENCES UserMaster (Id),
+FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
 );
 
 Create TABLE ImagesMaster

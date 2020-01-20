@@ -12,18 +12,28 @@ import java.util.List;
 public class SubCategoryJdbc {
     @Autowired
     JdbcTemplate jdbcTemplate;
-    public List<SubCategory> findAll(){
+
+    public List<SubCategory> findAll() {
         return jdbcTemplate.query("SELECT*FROM SubCategory",
                 new BeanPropertyRowMapper<>(SubCategory.class));
     }
+
     public SubCategory findById(int id) {
-        return  jdbcTemplate.queryForObject("SELECT*FROM SubCategory WHERE id=?",new Object[]{id},new BeanPropertyRowMapper<>(SubCategory.class));
+        return jdbcTemplate.queryForObject("SELECT*FROM SubCategory WHERE id=?", new Object[]
+                {id}, new BeanPropertyRowMapper<>(SubCategory.class));
     }
+
     public int deleteById(int id) {
-        return  jdbcTemplate.update("DELETE FROM SubCategory WHERE id=?",
+        return jdbcTemplate.update("DELETE FROM SubCategory WHERE id=?",
                 new Object[]{id});
 
     }
+
+    public List<SubCategory> findByCategoryId(int CategoryId) {
+        return jdbcTemplate.query("SELECT * FROM SubCategory WHERE CategoryId = ?", new Object[]{CategoryId},
+                new BeanPropertyRowMapper<>(SubCategory.class));
+    }
+
 }
 
 

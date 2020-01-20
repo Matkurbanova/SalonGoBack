@@ -25,6 +25,7 @@ public class CategoryJdbc {
                 new Object[]{id});
 
     }
+
 }
 
 

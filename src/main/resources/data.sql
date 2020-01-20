@@ -115,7 +115,7 @@ VALUES(1,'bermet03','Bermet','123','+996770595959','5-й микрорайон, 6
 Широкий спектр услуг, отличное качество - по приемлемым ценам.','salon03','imageLogo.png');
 
 INSERT INTO UserPersonal(id,login,password,phone,name,avatarimages)
-VALUES(1,'matber03','bema123','+996555555555','Bermet','avatarUser.png');
+VALUES(2,'matber03','bema123','+996555555555','Bermet','avatarUser.png');
 
 INSERT INTO ServiceSalon(Id ,Price ,Description ,Image )
 VALUES(1 ,'1000 сом','Наращивание ногтей Аквариумный дизайн','akvarium_nails.jpg');
@@ -126,7 +126,7 @@ INSERT INTO ImagesSalon(Id,ServiceSalonId,Image)
 VALUES(1,1,'akvarium nails.jpg');
 
 INSERT INTO Saved(UserId,ServiceSalonId)
-VALUES(1,1);
+VALUES(2,1);
 
 INSERT INTO WorkTime (SalonId, day,time_begin,time_end)
 VALUES(1, 1, '08:30', '16:30');
@@ -144,4 +144,11 @@ INSERT INTO WorkTime (SalonId, day,time_begin,time_end)
 VALUES(1, 5, '08:30', '16:30');
 
 INSERT INTO UserMaster(id,typeStatus,login,name,password,phone,workExperienceYear,ImageMaster,Description,Instagram)
-VALUES(1,1,'kamilla@gmail.com','Камилла','12345','+996707556644','5 года','masteravatar.png','Я - мастер ногтегого сервиса. Работаю с 2015 года. Я постоянно учусь,совершенствую свой уровень и качество работ и слежу за последними тенденциями...','arapova.nn')
+VALUES(1,1,'kamilla@gmail.com','Камилла','12345','+996707556644','5 года','masteravatar.png','Я - мастер ногтегого сервиса. Работаю с 2015 года. Я постоянно учусь,совершенствую свой уровень и качество работ и слежу за последними тенденциями...','arapova.nn');
+INSERT INTO ServiceMaster(Id,UserMasterId,SubCategoryId,Price,Description,Image)
+VALUES(1,1,1,'500 сом','Покрытие шеллаком','pokrytie shellakom.jpg');
+INSERT INTO ImagesMaster(id,ServiceMasterId,Image)
+VALUES(1,1,'pokrytie shellakom.jpg');
+
+INSERT INTO Promo(id,SalonId,UserMasterId,newPrice,oldPrice,promoDescription,promoImage)
+VALUES(1,1,1,'500сом','400сом','Акция от салона красоты и мастера Камилла. Запись заранее по Вотсап:+996707556644','promoimage.jpeg');

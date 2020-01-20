@@ -1,6 +1,7 @@
 package kg.salongo.SalonGoBack.jdbc;
 
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
+import kg.salongo.SalonGoBack.entity.SubCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,6 +24,10 @@ public class ServiceSalonJdbc {
         return  jdbcTemplate.update("DELETE FROM ServiceSalon WHERE id=?",
                 new Object[]{id});
 
+    }
+    public List<SubCategory> findByServiceSalonId(int ServiceSalonId) {
+        return jdbcTemplate.query("SELECT * FROM SubCategory WHERE ServiceSalonId = ?", new Object[]{ServiceSalonId},
+                new BeanPropertyRowMapper<>(SubCategory.class));
     }
 }
 
