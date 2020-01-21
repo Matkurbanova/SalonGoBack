@@ -13,19 +13,26 @@ import java.util.List;
 public class ServiceMasterJdbc {
     @Autowired
     JdbcTemplate jdbcTemplate;
-    public List<ServiceMaster> findAll(){
+
+    public List<ServiceMaster> findAll() {
         return jdbcTemplate.query("SELECT*FROM ServiceMaster",
                 new BeanPropertyRowMapper<>(ServiceMaster.class));
     }
+
     public ServiceMaster findById(int id) {
-        return  jdbcTemplate.queryForObject("SELECT*FROM ServiceMaster WHERE id=?",
-                new Object[]{id},new BeanPropertyRowMapper<>(ServiceMaster.class));
+        return jdbcTemplate.queryForObject("SELECT*FROM ServiceMaster WHERE id=?",
+                new Object[]{id}, new BeanPropertyRowMapper<>(ServiceMaster.class));
     }
+
     public int deleteById(int id) {
-        return  jdbcTemplate.update("DELETE FROM ServiceMaster WHERE id=?",
+        return jdbcTemplate.update("DELETE FROM ServiceMaster WHERE id=?",
                 new Object[]{id});
 
     }
+
+    public List<ServiceMaster> findByUserMasterId(int UserMasterId) {
+        return jdbcTemplate.query("SELECT * FROM ServiceMaster WHERE UserMasterId = ?", new Object[]{UserMasterId},
+                new BeanPropertyRowMapper<>(ServiceMaster.class));
+    }
+
 }
-
-

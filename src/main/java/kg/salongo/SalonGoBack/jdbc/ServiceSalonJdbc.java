@@ -25,9 +25,9 @@ public class ServiceSalonJdbc {
                 new Object[]{id});
 
     }
-    public List<SubCategory> findByServiceSalonId(int ServiceSalonId) {
-        return jdbcTemplate.query("SELECT * FROM SubCategory WHERE ServiceSalonId = ?", new Object[]{ServiceSalonId},
-                new BeanPropertyRowMapper<>(SubCategory.class));
+    public List<ServiceSalon> findBySalonId(int SalonId) {
+        return jdbcTemplate.query("SELECT * FROM ServiceSalon WHERE SalonId = ?", new Object[]{SalonId},
+                new BeanPropertyRowMapper<>(ServiceSalon.class));
     }
 }
 
