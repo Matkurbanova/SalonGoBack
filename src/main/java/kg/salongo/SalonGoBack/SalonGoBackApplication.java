@@ -34,14 +34,14 @@ public class SalonGoBackApplication implements CommandLineRunner {
     }
 
     public void run(String... args) throws Exception {
-        logger.info("{} user has been added to the DB",
-                userPersonalJdbc.insert(new UserPersonal(1, "bermet03", "bema123", "+996555555555", "Bermet", "avatarUser.png")));
-        logger.info("All Users {}", userPersonalJdbc.findAll());
-        logger.info("User with id 1 -> {}", userPersonalJdbc.findById(1));
-        logger.info("Update 1 -> {}", userPersonalJdbc.update(new UserPersonal(1, "julya033", "julya123", "+9965555577777", "Julya", "avatarUser.png")));
-//        logger.info("Deleting user with id 1, # of deleted records = {}",
-//                userPersonalJdbc.deleteById(1));
-
+//        logger.info("{} user has been added to the DB",
+//                userPersonalJdbc.insert(new UserPersonal(1, "bermet03", "bema123", "+996555555555", "Bermet", "avatarUser.png")));
+//        logger.info("All Users {}", userPersonalJdbc.findAll());
+//        logger.info("User with id 1 -> {}", userPersonalJdbc.findById(1));
+//        logger.info("Update 1 -> {}", userPersonalJdbc.update(new UserPersonal(1, "julya033", "julya123", "+9965555577777", "Julya", "avatarUser.png")));
+////        logger.info("Deleting user with id 1, # of deleted records = {}",
+////                userPersonalJdbc.deleteById(1));
+//
 
     }
 }

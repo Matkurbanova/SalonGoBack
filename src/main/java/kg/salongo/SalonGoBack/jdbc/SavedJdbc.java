@@ -12,17 +12,23 @@ import java.util.List;
 public class SavedJdbc {
     @Autowired
     JdbcTemplate jdbcTemplate;
-    public List<Saved> findAll(){
+
+    public List<Saved> findAll() {
         return jdbcTemplate.query("SELECT*FROM Saved",
                 new BeanPropertyRowMapper<>(Saved.class));
     }
-    public Saved findById(int id) {
-        return  jdbcTemplate.queryForObject("SELECT*FROM Saved WHERE id=?",new Object[]{id},new BeanPropertyRowMapper<>(Saved.class));
-    }
-    public int deleteById(int id) {
-        return  jdbcTemplate.update("DELETE FROM Saved WHERE id=?",
-                new Object[]{id});
 
+    public Saved findById(int id) {
+        return jdbcTemplate.queryForObject("SELECT*FROM Saved WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Saved.class));
+    }
+
+    public int deleteById(int id) {
+        return jdbcTemplate.update("DELETE FROM Saved WHERE id=?",
+                new Object[]{id});
+    }
+
+    public List<Saved> findByUserId(int id) {
+        return jdbcTemplate.query("SELECT*FROM Saved WHERE UserId=?", new Object[]{id}, new BeanPropertyRowMapper<>(Saved.class));
     }
 }
 

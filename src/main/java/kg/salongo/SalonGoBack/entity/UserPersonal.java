@@ -20,6 +20,15 @@ public class UserPersonal {
         this.name = name;
         this.avatarimages=avatarimages;
     }
+
+    public UserPersonal(String login,String password,String phone, String name,String avatarimages) {
+        this.login = login;
+        this.password = password;
+        this.phone = phone;
+        this.name = name;
+        this.avatarimages=avatarimages;
+    }
+
     public int getId(){
         return id;
     }

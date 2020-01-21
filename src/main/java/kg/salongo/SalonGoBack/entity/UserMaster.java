@@ -11,7 +11,7 @@ public class UserMaster {
     private String ImageMaster;
     private String Description;
     private String Instagram;
-     public UserMaster(){
+     public UserMaster(int typeStatus, String login, String name, String password, String phone, String workExperienceYear, String imageMaster, String description, String instagram){
 
      }
     public UserMaster(int id, int typeStatus, String login,String name,String password,String phone,String workExperienceYear,
