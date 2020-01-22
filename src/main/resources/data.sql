@@ -145,6 +145,20 @@ VALUES(25,3,25,'800 сом','Ламинирование ресниц','laminirov
 VALUES(26,3,26,'900 сом','Ламинирование Lash Botox','lam_lashbotox.jpg');
 VALUES(27,3,27,'100 сом','Окрашивание ресниц','okrash_resn.jpg');
 VALUES(28,3,28,'800 сом','Модный вечерный макияж','modnyi_vechernie_make.jpg');
+VALUES(37,5,37,'1000 сом','Газожиткостный пилинг','gaz.piling.jpg');
+VALUES(38,5,8,'1000 сом','Лазерная чистка лица','laz.jpg');
+VALUES(39,5,39,'1300 сом','Ретиноевый пилинг','retin.piling.jpg');
+VALUES(40,5,40,'1000 сом','Миндальный пилинг','mindalinyi_pil.jpg');
+VALUES(41,5,41,'1300 сом','Салициловой пилинг','chemicky peeling1.jpg');
+VALUES(42,5,42,'1500 сом','Гликолевый Пилинг','glikolevyi_piling.jpg');
+VALUES(43,5,43,'1600 сом','Мезотерапия лица и тела','mezo_dlya_litsa.jpg');
+VALUES(44,5,44,'1800 сом','Удаление глубоких морщин','udalenie_ot_morshin.jpg');
+VALUES(45,5,45,'3000 сом','Увеличение губ','uvelichit_gub.jpg');
+VALUES(46,6,46,'800 сом','Ноги полностью','nogi_polnost.jpg');
+VALUES(47,6,47,'800 сом','Ноги полностью','nogi_polnost.jpg');
+VALUES(48,6,48,'800 сом','Ноги полностью','nogi_polnost.jpg');
+
+
 
 
 
