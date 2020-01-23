@@ -119,52 +119,99 @@ INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(1,1,6,'1000 сом','Наращивание ногтей Аквариумный дизайн','akvarium_nails.jpg');
 INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(2,1,1,'300 сом','Маникюр с черным лаком','manikur.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(3,1,2,'400 сом','Педикюр','Nailspedikur.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(4,1,3,'200 сом','Снятие','snyatie.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(5,1,4,'600 сом','Покрытие шеллаком','manicure_nails_woman.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(6,1,5,'400 сом','Маникюр с покрытием','manicure_s_pokrytiem.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(7,1,7,'50 сом','Дизайн одного ногтя','dizain_odnogo_nogtya.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(8,1,8,'100 сом','Укрепление ногтей','ukreplenie_nogtei.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(9,1,9,'500 сом','Покрытие гель-лаком','manicure_gel_lak.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(10,1,10,'600 сом','Аппаратный педикюр','apparatnyi_pedicure.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(11,1,11,'600 сом','Педикюр с покрытием','pedicure_s_pokrytiem.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
 VALUES(12,1,12,'300 сом','Коррекция ногтей','korrekrtsiya_nogtei.jpeg');
-VALUES(13,2,13,'400 сом','Коррекция бровей','korrektsiya_brovei.jpg');
-VALUES(14,2,14,'800 сом','Окрашивание бровей с краской','okrashivanie_brovei.jpg');
-VALUES(15,2,15,'700 сом','Окрашивание бровей хной','okrashivanie_brovei_hnoi.jpg');
-VALUES(16,2,16,'300 сом','Мейкап бровей','makeup_brows.jpg');
-VALUES(17,2,17,'600 сом','Окрашивание лечение бровей хной био татуаж','biotatuazh_hnoi.jpg');
-VALUES(18,2,18,'100 сом','Омоложивающий патчи','patchi_pod_glaz.jpg');
-VALUES(19,2,19,'500 сом','Архитектура бровей','architecture_brows.jpeg');
-VALUES(20,3,20,'800 сом','Классическое наращивание','klassik_res.jpg');
-VALUES(21,3,21,'900 сом','Объёмное наращивание 2D','2d_nar_res.jpg');
-VALUES(22,3,22,'1000 сом','Объёмное наращивание 3D','3d_nar_res.jpg');
-VALUES(23,3,23,'1200 сом','Голливудский объем 4 5D','4_5D_nar_res.jpg');
-VALUES(24,3,24,'1300 сом','Мегаобьем 7 10D','megaobem_7_10D.jpg');
-VALUES(25,3,25,'800 сом','Ламинирование ресниц','laminirovanie_resnits.jpg');
-VALUES(26,3,26,'900 сом','Ламинирование Lash Botox','lam_lashbotox.jpg');
-VALUES(27,3,27,'100 сом','Окрашивание ресниц','okrash_resn.jpg');
-VALUES(28,4,28,'800 сом','Модный вечерный макияж','modnyi_vechernie_make.jpg');
-VALUES(29,4,29,'2000 сом','Макияж свадебный','weddingmake.jpg');
-VALUES(30,4,30,'1000 сом','Фирменный макияж','firmennyi_makeUp.jpg');
-VALUES(31,4,31,'800 сом','Стрелки глаз','strelka.jpg');
-VALUES(32,4,32,'500 сом','Макияж дневной','dnevnoi_makeUp.jpg');
-VALUES(33,5,33,'500 сом','Механическая чистка лица','machine_face.jpg');
-VALUES(34,5,34,'500 сом','Ультрозвуковая чистка лица','ultra_chhistka_litsa.jpg');
-VALUES(35,5,35,'500 сом','Вакуумная чистка листка','vacuum_chistka_litsa.jpg');
-VALUES(36,5,36,'500 сом','Химическая чистка лица','himik_face.jpg');
-VALUES(37,5,37,'1000 сом','Газожиткостный пилинг','gaz.piling.jpg');
-VALUES(38,5,8,'1000 сом','Лазерная чистка лица','laz.jpg');
-VALUES(39,5,39,'1300 сом','Ретиноевый пилинг','retin.piling.jpg');
-VALUES(40,5,40,'1000 сом','Миндальный пилинг','mindalinyi_pil.jpg');
-VALUES(41,5,41,'1300 сом','Салициловой пилинг','chemicky peeling1.jpg');
-VALUES(42,5,42,'1500 сом','Гликолевый Пилинг','glikolevyi_piling.jpg');
-VALUES(43,5,43,'1600 сом','Мезотерапия лица и тела','mezo_dlya_litsa.jpg');
-VALUES(44,5,44,'1800 сом','Удаление глубоких морщин','udalenie_ot_morshin.jpg');
-VALUES(45,5,45,'3000 сом','Увеличение губ','uvelichit_gub.jpg');
-VALUES(46,6,46,'800 сом','Ноги полностью','nogi_polnost.jpg');
-VALUES(47,6,47,'800 сом','Ноги полностью','nogi_polnost.jpg');
-VALUES(48,6,48,'800 сом','Ноги полностью','nogi_polnost.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(13,1,13,'400 сом','Коррекция бровей','korrektsiya_brovei.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(14,1,14,'800 сом','Окрашивание бровей с краской','okrashivanie_brovei.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(15,1,15,'700 сом','Окрашивание бровей хной','okrashivanie_brovei_hnoi.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(16,1,16,'300 сом','Мейкап бровей','makeup_brows.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(17,1,17,'600 сом','Окрашивание лечение бровей хной био татуаж','biotatuazh_hnoi.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(18,1,18,'100 сом','Омоложивающий патчи','patchi_pod_glaz.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(19,1,19,'500 сом','Архитектура бровей','architecture_brows.jpeg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(20,1,20,'800 сом','Классическое наращивание','klassik_res.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(21,1,21,'900 сом','Объёмное наращивание 2D','2d_nar_res.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(22,1,22,'1000 сом','Объёмное наращивание 3D','3d_nar_res.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(23,1,23,'1200 сом','Голливудский объем 4 5D','4_5D_nar_res.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(24,1,24,'1300 сом','Мегаобьем 7 10D','megaobem_7_10D.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(25,1,25,'800 сом','Ламинирование ресниц','laminirovanie_resnits.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(26,1,26,'900 сом','Ламинирование Lash Botox','lam_lashbotox.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(27,1,27,'100 сом','Окрашивание ресниц','okrash_resn.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(28,1,28,'800 сом','Модный вечерный макияж','modnyi_vechernie_make.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(29,1,29,'2000 сом','Макияж свадебный','weddingmake.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(30,1,30,'1000 сом','Фирменный макияж','firmennyi_makeUp.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(31,1,31,'800 сом','Стрелки глаз','strelka.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(32,1,32,'500 сом','Макияж дневной','dnevnoi_makeUp.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(33,1,33,'500 сом','Механическая чистка лица','machine_face.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(34,1,34,'500 сом','Ультрозвуковая чистка лица','ultra_chhistka_litsa.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(35,1,35,'500 сом','Вакуумная чистка листка','vacuum_chistka_litsa.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(36,1,36,'500 сом','Химическая чистка лица','himik_face.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(37,1,37,'1000 сом','Газожиткостный пилинг','gaz.piling.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(38,1,8,'1000 сом','Лазерная чистка лица','laz.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(39,1,39,'1300 сом','Ретиноевый пилинг','retin.piling.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(40,1,40,'1000 сом','Миндальный пилинг','mindalinyi_pil.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(41,1,41,'1300 сом','Салициловой пилинг','chemicky peeling1.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(42,1,42,'1500 сом','Гликолевый Пилинг','glikolevyi_piling.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(43,1,43,'1600 сом','Мезотерапия лица и тела','mezo_dlya_litsa.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(44,1,44,'1800 сом','Удаление глубоких морщин','udalenie_ot_morshin.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(45,1,45,'3000 сом','Увеличение губ','uvelichit_gub.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(46,1,46,'800 сом','Ноги полностью','nogi_polnost.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(47,1,47,'800 сом','Ноги полностью','nogi_polnost.jpg');
+INSERT INTO ServiceSalon(Id,SalonId,SubCategoryId,Price,Description,Image )
+VALUES(48,1,48,'800 сом','Ноги полностью','nogi_polnost.jpg');
+
 
 
 
