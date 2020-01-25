@@ -2,6 +2,7 @@ package kg.salongo.SalonGoBack;
 
 import kg.salongo.SalonGoBack.entity.UserPersonal;
 import kg.salongo.SalonGoBack.jdbc.*;
+import kg.salongo.SalonGoBack.utils.GoFiles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,6 @@ public class SalonGoBackApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(SalonGoBackApplication.class, args);
-
     }
 
     public void run(String... args) throws Exception {

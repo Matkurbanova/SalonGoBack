@@ -7,11 +7,13 @@ import kg.salongo.SalonGoBack.entity.UserSalon;
 import kg.salongo.SalonGoBack.jdbc.UserMasterJdbc;
 import kg.salongo.SalonGoBack.jdbc.UserPersonalJdbc;
 import kg.salongo.SalonGoBack.jdbc.UserSalonJdbc;
+import kg.salongo.SalonGoBack.utils.GoFiles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @RestController
@@ -43,11 +45,18 @@ public class RegistrationController {
             @RequestParam("phone") String phone,
             @RequestParam("workExperienceYear") String workExperienceYear,
             @RequestParam("Description") String Description,
-            @RequestParam("Instagram") String Instagram
-
-
+            @RequestParam("Instagram") String Instagram,
+            @RequestParam("image") MultipartFile image
     ) {
-        UserMaster userMaster = new UserMaster(typeStatus, login, name, password, phone, workExperienceYear, "masteravatar.png", Description, Instagram);
+
+        String fileName = "";
+        try {
+            fileName = GoFiles.save(image, GoFiles.storage);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        UserMaster userMaster = new UserMaster(typeStatus, login, name, password, phone, workExperienceYear, fileName, Description, Instagram);
         UserMaster isExists = userMasterJdbc.findByLogin(userMaster.getLogin());
         if (isExists == null) {
             int id = userMasterJdbc.insert(userMaster);
@@ -58,36 +67,47 @@ public class RegistrationController {
                 return new Response(-1, "Не удалось добавить");
             }
         } else {
-                return new Response(-1, "Мастер с таким логином уже есть");
-        }}
-        @Autowired
-        UserSalonJdbc userSalonJdbc;
-
-        @RequestMapping(value = "/api/register/salon", method = RequestMethod.POST)
-        public Response register(
-        @RequestParam("login") String login,
-        @RequestParam("name") String name,
-        @RequestParam("password") String password,
-        @RequestParam("phone") String phone,
-        @RequestParam("address") String address,
-        @RequestParam("description") String description,
-        @RequestParam("instaLogin") String instaLogin,
-        @RequestParam("logoSalon") String logoSalon
-
-
-    )
-        {
-            UserSalon userSalon = new UserSalon( login, name, password, phone, address, description, instaLogin,logoSalon);
-            UserSalon isExists = userSalonJdbc.findByLogin(userSalon.getLogin());
-            if (isExists == null) {
-                int id = userSalonJdbc.insert(userSalon);
-                if (id > 0) {
-                    userSalon.setId(id);
-                    return new Response(userSalon);
-                } else {
-                    return new Response(-1, "Не удалось добавить");
-                }
-            } else {
-                return new Response(-1, "Салон с таким логином уже есть");
-            }}
+            return new Response(-1, "Мастер с таким логином уже есть");
+        }
     }
+
+    @Autowired
+    UserSalonJdbc userSalonJdbc;
+
+    @RequestMapping(value = "/api/register/salon", method = RequestMethod.POST)
+    public Response register(
+            @RequestParam("login") String login,
+            @RequestParam("name") String name,
+            @RequestParam("password") String password,
+            @RequestParam("phone") String phone,
+            @RequestParam("address") String address,
+            @RequestParam("description") String description,
+            @RequestParam("instaLogin") String instaLogin,
+            @RequestParam("image")MultipartFile image
+    )
+    {
+
+
+            String fileName = "";
+            try {
+                fileName = GoFiles.save(image, GoFiles.storage);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            UserSalon userSalon = new UserSalon(login, name, password, phone, address, description, instaLogin, fileName);
+
+        UserSalon isExists = userSalonJdbc.findByLogin(userSalon.getLogin());
+        if (isExists == null) {
+            int id = userSalonJdbc.insert(userSalon);
+            if (id > 0) {
+                userSalon.setId(id);
+                return new Response(userSalon);
+            } else {
+                return new Response(-1, "Не удалось добавить");
+            }
+        } else {
+            return new Response(-1, "Салон с таким логином уже есть");
+        }
+    }
+}
