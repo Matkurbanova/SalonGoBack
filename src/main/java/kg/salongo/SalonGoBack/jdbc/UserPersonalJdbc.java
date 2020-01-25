@@ -54,7 +54,8 @@ public class UserPersonalJdbc {
     }
 
     public int insert(UserPersonal userPersonal) {
-        return jdbcTemplate.update("insert into userPersonal (login, password, phone,name,avatarimages) " + "values(?, ?, ?, ?, ?)",
+        return jdbcTemplate.update("insert into userPersonal (id,login, password, phone,name,avatarimages) " + "values(?, ?, ?, ?, ?)",
+                userPersonal.getId(),
                  userPersonal.getLogin()
                 , userPersonal.getPassword()
                 , userPersonal.getPhone()

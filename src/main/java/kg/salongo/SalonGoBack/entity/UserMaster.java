@@ -11,23 +11,36 @@ public class UserMaster {
     private String ImageMaster;
     private String Description;
     private String Instagram;
-     public UserMaster(int typeStatus, String login, String name, String password, String phone, String workExperienceYear, String imageMaster, String description, String instagram){
 
-     }
-    public UserMaster(int id, int typeStatus, String login,String name,String password,String phone,String workExperienceYear,
-                      String ImageMaster,String Description,String Instagram){
-        this.id=id;
-        this.typeStatus=typeStatus;
-        this.login=login;
-        this.name=name;
-        this.password=password;
-        this.phone=phone;
-        this.workExperienceYear=workExperienceYear;
-        this.ImageMaster=ImageMaster;
-        this.Description=Description;
-        this.Instagram=Instagram;
+    public UserMaster() {
+    }
 
-}
+    public UserMaster(int typeStatus, String login, String name, String password, String phone, String workExperienceYear, String imageMaster, String description, String instagram) {
+        this.typeStatus = typeStatus;
+        this.login = login;
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+        this.workExperienceYear = workExperienceYear;
+        this.ImageMaster = imageMaster;
+        this.Description = description;
+        this.Instagram = instagram;
+    }
+
+    public UserMaster(int id, int typeStatus, String login, String name, String password, String phone, String workExperienceYear,
+                      String ImageMaster, String Description, String Instagram) {
+        this.id = id;
+        this.typeStatus = typeStatus;
+        this.login = login;
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+        this.workExperienceYear = workExperienceYear;
+        this.ImageMaster = ImageMaster;
+        this.Description = Description;
+        this.Instagram = Instagram;
+
+    }
 
     public String getDescription() {
         return Description;

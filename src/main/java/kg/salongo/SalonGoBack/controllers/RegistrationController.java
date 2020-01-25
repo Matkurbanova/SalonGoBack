@@ -3,8 +3,10 @@ package kg.salongo.SalonGoBack.controllers;
 import kg.salongo.SalonGoBack.Response;
 import kg.salongo.SalonGoBack.entity.UserMaster;
 import kg.salongo.SalonGoBack.entity.UserPersonal;
+import kg.salongo.SalonGoBack.entity.UserSalon;
 import kg.salongo.SalonGoBack.jdbc.UserMasterJdbc;
 import kg.salongo.SalonGoBack.jdbc.UserPersonalJdbc;
+import kg.salongo.SalonGoBack.jdbc.UserSalonJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,17 +40,54 @@ public class RegistrationController {
             @RequestParam("login") String login,
             @RequestParam("name") String name,
             @RequestParam("password") String password,
-            @RequestParam("phone")String phone,
-            @RequestParam("workExperienceYear")String workExperienceYear,
-            @RequestParam("Description")String Description,
-            @RequestParam("Instagram")String Instagram
+            @RequestParam("phone") String phone,
+            @RequestParam("workExperienceYear") String workExperienceYear,
+            @RequestParam("Description") String Description,
+            @RequestParam("Instagram") String Instagram
 
 
+    ) {
+        UserMaster userMaster = new UserMaster(typeStatus, login, name, password, phone, workExperienceYear, "masteravatar.png", Description, Instagram);
+        UserMaster isExists = userMasterJdbc.findByLogin(userMaster.getLogin());
+        if (isExists == null) {
+            int id = userMasterJdbc.insert(userMaster);
+            if (id > 0) {
+                userMaster.setId(id);
+                return new Response(userMaster);
+            } else {
+                return new Response(-1, "Не удалось добавить");
+            }
+        } else {
+                return new Response(-1, "Мастер с таким логином уже есть");
+        }}
+        @Autowired
+        UserSalonJdbc userSalonJdbc;
 
-            ) {
-UserMaster userMaster=new UserMaster(typeStatus,login,name,password,phone,workExperienceYear,"masteravatar.png",Description,Instagram);
-int id=userMasterJdbc.insert(userMaster);
-return new Response(userMaster);
+        @RequestMapping(value = "/api/register/salon", method = RequestMethod.POST)
+        public Response register(
+        @RequestParam("login") String login,
+        @RequestParam("name") String name,
+        @RequestParam("password") String password,
+        @RequestParam("phone") String phone,
+        @RequestParam("address") String address,
+        @RequestParam("description") String description,
+        @RequestParam("instaLogin") String instaLogin,
+        @RequestParam("logoSalon") String logoSalon
 
 
-}}
+    )
+        {
+            UserSalon userSalon = new UserSalon( login, name, password, phone, address, description, instaLogin,logoSalon);
+            UserSalon isExists = userSalonJdbc.findByLogin(userSalon.getLogin());
+            if (isExists == null) {
+                int id = userSalonJdbc.insert(userSalon);
+                if (id > 0) {
+                    userSalon.setId(id);
+                    return new Response(userSalon);
+                } else {
+                    return new Response(-1, "Не удалось добавить");
+                }
+            } else {
+                return new Response(-1, "Салон с таким логином уже есть");
+            }}
+    }

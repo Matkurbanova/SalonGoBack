@@ -11,8 +11,18 @@ public class UserSalon {
     private String instaLogin;
     private String logoSalon;
 
-    public UserSalon(){
+    public UserSalon() {
+    }
 
+    public UserSalon(String login, String name, String password, String phone, String address, String description, String instaLogin, String logoSalon){
+        this.login=login;
+        this.name=name;
+        this.password=password;
+        this.phone=phone;
+        this.address=address;
+        this.description=description;
+        this.instaLogin=instaLogin;
+        this.logoSalon=logoSalon;
     }
     public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String logoSalon){
         this.id=id;
