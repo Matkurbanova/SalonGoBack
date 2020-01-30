@@ -7,35 +7,39 @@ public class UserPersonal {
     private String phone;
     private String name;
     private String avatarimages;
+    private String token;
 
     public UserPersonal() {
 
     }
 
-    public UserPersonal(int id, String login,String password,String phone, String name,String avatarimages) {
+    public UserPersonal(int id, String login, String password, String phone, String name, String avatarimages,String token) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.phone = phone;
         this.name = name;
-        this.avatarimages=avatarimages;
+        this.avatarimages = avatarimages;
+        this.token=token;
     }
 
-    public UserPersonal(String login,String password,String phone, String name,String avatarimages) {
+    public UserPersonal(String login, String password, String phone, String name, String avatarimages,String token) {
         this.login = login;
         this.password = password;
         this.phone = phone;
         this.name = name;
-        this.avatarimages=avatarimages;
-    }
+        this.avatarimages = avatarimages;
+        this.token=token;   }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
 
     }
+
     public String getLogin() {
         return login;
     }
@@ -75,6 +79,15 @@ public class UserPersonal {
     public void setAvatarimages(String avatarimages) {
         this.avatarimages = avatarimages;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public String toString() {
         return "UserPersonal{" +

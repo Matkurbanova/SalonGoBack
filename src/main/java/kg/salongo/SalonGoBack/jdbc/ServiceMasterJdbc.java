@@ -35,4 +35,9 @@ public class ServiceMasterJdbc {
                 new BeanPropertyRowMapper<>(ServiceMaster.class));
     }
 
+    public ServiceMaster findByToken(String token) {
+        return jdbcTemplate.queryForObject("SELECT * FROM ServiceMaster WHERE token = ?", new Object[]{token},
+                new BeanPropertyRowMapper<>(ServiceMaster.class));
+    }
+
 }

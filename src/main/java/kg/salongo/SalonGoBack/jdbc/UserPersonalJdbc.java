@@ -56,7 +56,7 @@ public class UserPersonalJdbc {
     public int insert(UserPersonal userPersonal) {
         return jdbcTemplate.update("insert into userPersonal (id,login, password, phone,name,avatarimages) " + "values(?, ?, ?, ?, ?)",
                 userPersonal.getId(),
-                 userPersonal.getLogin()
+                userPersonal.getLogin()
                 , userPersonal.getPassword()
                 , userPersonal.getPhone()
                 , userPersonal.getName()
@@ -66,14 +66,17 @@ public class UserPersonalJdbc {
     }
 
     public int update(UserPersonal userPersonal) {
-        return jdbcTemplate.update("update userPersonal " + "set login = ?, password = ?, phone = ?,name = ?, avatarimages = ?" +
-                        " where id = ?",
+        return jdbcTemplate.update("update userPersonal "
+                        + "set login = ?, password = ?, phone = ?,name = ?, avatarimages = ?, token = ?"
+                        + " where id = ?",
                 userPersonal.getLogin(),
                 userPersonal.getPassword(),
                 userPersonal.getPhone(),
                 userPersonal.getName(),
                 userPersonal.getAvatarimages(),
-                userPersonal.getId());
+                userPersonal.getToken(),
+                userPersonal.getId()
+                );
     }
 }
 

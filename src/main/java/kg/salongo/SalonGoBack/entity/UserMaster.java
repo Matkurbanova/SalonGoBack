@@ -11,7 +11,7 @@ public class UserMaster {
     private String ImageMaster;
     private String Description;
     private String Instagram;
-
+private String token;
     public UserMaster() {
     }
 

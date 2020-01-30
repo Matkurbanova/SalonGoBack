@@ -10,13 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Random;
 
 public class GoFiles {
 
     public static final String storage = "G:/salonGoFiles/";
     public static final String serviceImagesStorage = storage + "service_images/";
-    public static final String fileChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
     public static String save(MultipartFile file) throws Exception {
         return save(file, storage);
@@ -26,7 +24,7 @@ public class GoFiles {
         Path storagePath = Paths.get(path);
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         String fileExtension = getFileExtension(filename);
-        filename = randomString(20) + fileExtension;
+        filename = RandomUtils.randomString(20) + fileExtension;
         try {
             if (file.isEmpty()) {
                 throw new Exception("Failed to store empty file " + filename);
@@ -60,14 +58,5 @@ public class GoFiles {
     public static String getFileExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
         return fileName.substring(dotIndex);
-    }
-
-    public static String randomString(int length) {
-        Random random = new Random();
-        String randomString = "";
-        for (int i = 0; i < length; i++) {
-            randomString += fileChars.charAt(random.nextInt(fileChars.length()));
-        }
-        return randomString;
     }
 }

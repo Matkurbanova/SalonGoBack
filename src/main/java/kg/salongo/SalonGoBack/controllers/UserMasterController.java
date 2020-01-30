@@ -19,4 +19,5 @@ public class UserMasterController {
     public Response<List<UserMaster>> getTypes() {
         return new Response(userMasterJdbc.findAll());
     }
+
 }

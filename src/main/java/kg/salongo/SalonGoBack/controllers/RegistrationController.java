@@ -8,6 +8,8 @@ import kg.salongo.SalonGoBack.jdbc.UserMasterJdbc;
 import kg.salongo.SalonGoBack.jdbc.UserPersonalJdbc;
 import kg.salongo.SalonGoBack.jdbc.UserSalonJdbc;
 import kg.salongo.SalonGoBack.utils.GoFiles;
+import kg.salongo.SalonGoBack.utils.RandomUtils;
+import org.aspectj.weaver.patterns.IToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +30,8 @@ public class RegistrationController {
             @RequestParam("phone") String phone,
             @RequestParam("name") String name
     ) {
-        UserPersonal userPersonal = new UserPersonal(login, password, phone, name, "avatarUser.png");
+        String token = RandomUtils.createToken();
+        UserPersonal userPersonal = new UserPersonal(login, password, phone, name, "avatarUser.png", token);
         int id = userPersonalJdbc.insert(userPersonal);
         return new Response(userPersonal);
     }
@@ -83,19 +86,18 @@ public class RegistrationController {
             @RequestParam("address") String address,
             @RequestParam("description") String description,
             @RequestParam("instaLogin") String instaLogin,
-            @RequestParam("image")MultipartFile image
-    )
-    {
+            @RequestParam("image") MultipartFile image
+    ) {
 
 
-            String fileName = "";
-            try {
-                fileName = GoFiles.save(image, GoFiles.storage);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
-            UserSalon userSalon = new UserSalon(login, name, password, phone, address, description, instaLogin, fileName);
+        String fileName = "";
+        try {
+            fileName = GoFiles.save(image, GoFiles.storage);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        String token = RandomUtils.createToken();
+        UserSalon userSalon = new UserSalon(login, name, password, phone, address, description, instaLogin, fileName, token);
 
         UserSalon isExists = userSalonJdbc.findByLogin(userSalon.getLogin());
         if (isExists == null) {

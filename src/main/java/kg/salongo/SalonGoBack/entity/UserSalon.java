@@ -10,11 +10,12 @@ public class UserSalon {
     private String description;
     private String instaLogin;
     private String logoSalon;
+    private String token;
 
     public UserSalon() {
     }
 
-    public UserSalon(String login, String name, String password, String phone, String address, String description, String instaLogin, String logoSalon){
+    public UserSalon(String login, String name, String password, String phone, String address, String description, String instaLogin, String logoSalon,String token){
         this.login=login;
         this.name=name;
         this.password=password;
@@ -23,8 +24,9 @@ public class UserSalon {
         this.description=description;
         this.instaLogin=instaLogin;
         this.logoSalon=logoSalon;
+        this.token=token;
     }
-    public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String logoSalon){
+    public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String logoSalon,String token){
         this.id=id;
         this.login=login;
         this.name=name;
@@ -34,7 +36,17 @@ public class UserSalon {
         this.description=description;
         this.instaLogin=instaLogin;
         this.logoSalon=logoSalon;
+        this.token=token;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public int getId(){
         return id;
     }
@@ -116,7 +128,8 @@ public String getPhone(){
                 ", address='" + address + '\'' +
                 "description=" + description +
                 ", instaLogin='" + instaLogin + '\'' +
-                ", logoSalon=" + logoSalon +
+                ", logoSalon='" + logoSalon + '\'' +
+                ", token=" + token +
                 '}';
     }
 }

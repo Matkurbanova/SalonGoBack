@@ -3,6 +3,7 @@ package kg.salongo.SalonGoBack.controllers;
 import kg.salongo.SalonGoBack.Response;
 import kg.salongo.SalonGoBack.entity.UserPersonal;
 import kg.salongo.SalonGoBack.jdbc.UserPersonalJdbc;
+import kg.salongo.SalonGoBack.utils.RandomUtils;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +21,15 @@ public class AuthController {
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
     public Response<UserPersonal> login(@RequestParam("login") String login, @RequestParam("password") String password) {
         try {
-            UserPersonal userPersonal = userPersonalJdbcJdbc.findByLogin(login);
+            UserPersonal userPersonal = userPersonalJdbcJdbc.findByLogin(login.trim());
+            userPersonal.setToken(RandomUtils.createToken());
+            userPersonalJdbcJdbc.update(userPersonal);
+
             return new Response(userPersonal);
         } catch (Exception ex) {
+            ex.printStackTrace();
             return new Response(-1, "No user with login " + login);
         }
+
     }
 }

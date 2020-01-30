@@ -24,9 +24,8 @@ Create TABLE UserSalon
   address varchar(150) not null,
   description varchar(255) not null,
   instaLogin varchar(150) not null,
-  logoSalon varchar(150) not null
-
-
+  logoSalon varchar(150) not null,
+  token varchar(255)
 );
 
 Create TABLE UserPersonal
@@ -36,8 +35,8 @@ Create TABLE UserPersonal
   password varchar(150) not null,
   phone varchar(255) not null,
   name varchar(150) not null,
-  avatarimages varchar(150) not null
-
+  avatarimages varchar(150) not null,
+  token varchar(255)
 
 );
 
