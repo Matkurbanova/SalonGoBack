@@ -29,7 +29,7 @@ public class ServiceMasterController {
             @RequestParam("price") String price) {
         ServiceMaster master = serviceMasterJdbc.findByToken(token);
         if (master != null) {
-
+// TODO: добавить услугу
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }

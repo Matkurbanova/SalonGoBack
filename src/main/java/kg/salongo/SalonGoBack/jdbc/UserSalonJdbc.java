@@ -52,8 +52,8 @@ public class UserSalonJdbc {
         return -1;
     }
     public int update(UserSalon userSalon) {
-        return jdbcTemplate.update("update userSalon " + "set login = ?, name = ?, password = ?, phone =?, address = ?, description = ?, instaLogin =?,logoSalon =?" +
-                        " where id = ?",
+        return jdbcTemplate.update("update userSalon " + "set login = ?, name = ?, password = ?, phone =?, address = ?, description = ?, instaLogin =?,logoSalon =?,token = ?" +
+                " where id = ?",
                 userSalon.getLogin(),
                 userSalon.getName(),
                 userSalon.getPassword(),
@@ -62,6 +62,7 @@ public class UserSalonJdbc {
                 userSalon.getDescription(),
                 userSalon.getInstaLogin(),
                 userSalon.getLogoSalon(),
+                userSalon.getToken(),
                 userSalon.getId());
 
     }

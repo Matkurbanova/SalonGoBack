@@ -30,6 +30,13 @@ public class AuthController {
             ex.printStackTrace();
             return new Response(-1, "No user with login " + login);
         }
-
+/* TODO:
+* MD5 шифрование пароля
+* как об. три таблиицы
+* проверка пароля
+* добав
+*
+*
+* */
     }
 }

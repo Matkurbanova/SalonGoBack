@@ -41,7 +41,12 @@ private String token;
         this.Instagram = Instagram;
 
     }
-
+    public void setToken(String token) {
+        this.token = token;
+    }
+    public String getToken() {
+        return token;
+    }
     public String getDescription() {
         return Description;
     }

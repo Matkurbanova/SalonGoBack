@@ -64,7 +64,7 @@ public class UserMasterJdbc {
     }
 
     public int update(UserMaster userMaster) {
-        return jdbcTemplate.update("update userMaster " + "set typeStatus = ?, login = ?, name = ?, password =?, phone = ?, workExperienceYear = ?, ImageMaster =?,Description =?,Instagram =?" +
+        return jdbcTemplate.update("update userMaster " + "set typeStatus = ?, login = ?, name = ?, password =?, phone = ?, workExperienceYear = ?, ImageMaster =?,Description =?,Instagram =?, token = ?" +
                         " where id = ?",
                 userMaster.getTypeStatus(),
                 userMaster.getLogin(),
@@ -75,6 +75,7 @@ public class UserMasterJdbc {
                 userMaster.getImageMaster(),
                 userMaster.getDescription(),
                 userMaster.getInstagram(),
+                userMaster.getToken(),
                 userMaster.getId());
     }
 
