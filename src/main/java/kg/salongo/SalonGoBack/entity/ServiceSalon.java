@@ -7,6 +7,7 @@ private int SubCategoryId;
 private String Price;
 private String Description;
 private String Image;
+
     public ServiceSalon(){
 
     }

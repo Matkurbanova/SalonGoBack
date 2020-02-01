@@ -96,8 +96,7 @@ public class UserPersonal {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", name='" + name + '\'' +
-                ", avatarimages='" + avatarimages + '\'' +
-                ", token='" + token + '\'' +
+                ", avatarimages=" + avatarimages +
                 '}';
     }
 }

@@ -42,7 +42,7 @@ public class ServiceSalonJdbc {
     }
 
     public List<ServiceBySubCat> findBySubCategory(int SalonId) {
-        List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE  FROM ServiceSalon ss" +
+        List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE,us.typeStatus  FROM ServiceSalon ss" +
                         " JOIN USERSALON us ON ss.SALONID = us.ID" +
                         " WHERE SubcategoryId = ?", new Object[]{SalonId},
                 new BeanPropertyRowMapper<>(ServiceBySubCat.class));

@@ -9,7 +9,16 @@ public class ServiceBySubCat extends ServiceSalon {
     String name;
     String address;
     String phone;
+    int typeStatus;
     List<WorkTime> workTimes;
+
+    public int getTypeStatus() {
+        return typeStatus;
+    }
+
+    public void setTypeStatus(int typeStatus) {
+        this.typeStatus = typeStatus;
+    }
 
     public String getName() {
         return name;

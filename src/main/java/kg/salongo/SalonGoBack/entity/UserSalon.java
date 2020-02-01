@@ -10,12 +10,13 @@ public class UserSalon {
     private String description;
     private String instaLogin;
     private String logoSalon;
+    private int typeStatus;
     private String token;
 
     public UserSalon() {
     }
 
-    public UserSalon(String login, String name, String password, String phone, String address, String description, String instaLogin, String logoSalon,String token){
+    public UserSalon(String login, String name, String password, String phone, String address, String description, String instaLogin, String logoSalon,int typeStatus,String token){
         this.login=login;
         this.name=name;
         this.password=password;
@@ -24,9 +25,10 @@ public class UserSalon {
         this.description=description;
         this.instaLogin=instaLogin;
         this.logoSalon=logoSalon;
+        this.typeStatus=typeStatus;
         this.token=token;
     }
-    public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String logoSalon,String token){
+    public UserSalon(int id,String login,String name,String password,String phone,String address,String description,String instaLogin,String logoSalon,int typeStatus,String token){
         this.id=id;
         this.login=login;
         this.name=name;
@@ -36,6 +38,7 @@ public class UserSalon {
         this.description=description;
         this.instaLogin=instaLogin;
         this.logoSalon=logoSalon;
+        this.typeStatus=typeStatus;
         this.token=token;
     }
 
@@ -117,19 +120,28 @@ public String getPhone(){
         this.logoSalon = logoSalon;
     }
 
+    public int getTypeStatus() {
+        return typeStatus;
+    }
+
+    public void setTypeStatus(int typeStatus) {
+        this.typeStatus = typeStatus;
+    }
+
     @Override
     public String toString() {
         return "UserSalon{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", name='" + name + '\'' +
-                "password=" + password +
+                ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                "description=" + description +
+                ", description='" + description + '\'' +
                 ", instaLogin='" + instaLogin + '\'' +
                 ", logoSalon='" + logoSalon + '\'' +
-                ", token=" + token +
+                ", typeStatus=" + typeStatus +
+                ", token='" + token + '\'' +
                 '}';
     }
 }

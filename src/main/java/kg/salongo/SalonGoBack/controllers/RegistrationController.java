@@ -86,6 +86,7 @@ public class RegistrationController {
             @RequestParam("address") String address,
             @RequestParam("description") String description,
             @RequestParam("instaLogin") String instaLogin,
+            @RequestParam("typeStatus") int typeStatus,
             @RequestParam("image") MultipartFile image
     ) {
 
@@ -97,7 +98,7 @@ public class RegistrationController {
             ex.printStackTrace();
         }
         String token = RandomUtils.createToken();
-        UserSalon userSalon = new UserSalon(login, name, password, phone, address, description, instaLogin, fileName, token);
+        UserSalon userSalon = new UserSalon(login, name, password, phone, address, description, instaLogin, fileName,typeStatus, token);
 
         UserSalon isExists = userSalonJdbc.findByLogin(userSalon.getLogin());
         if (isExists == null) {

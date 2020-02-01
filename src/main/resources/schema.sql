@@ -25,6 +25,7 @@ Create TABLE UserSalon
   description varchar(255) not null,
   instaLogin varchar(150) not null,
   logoSalon varchar(150) not null,
+  typeStatus int(2)not null,
   token varchar(255)
 );
 
