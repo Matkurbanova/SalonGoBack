@@ -1,5 +1,6 @@
 package kg.salongo.SalonGoBack.jdbc;
 
+import kg.salongo.SalonGoBack.data.MoreServiceBySubCat;
 import kg.salongo.SalonGoBack.data.ServiceBySubCat;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
@@ -53,6 +54,22 @@ public class ServiceSalonJdbc {
 
         return resList;
     }
+//    public List<MoreServiceBySubCat>findBySubCategoryId(int SalonId) {
+//        List<MoreServiceBySubCat> resList = jdbcTemplate.query(" SELECT mss.*, mus.NAME, mus.ADDRESS, mus.PHONE,mus.typeStatus  FROM ServiceSalon mss\n" +
+//                        "JOIN USERSALON mus ON mss.SALONID = mus.ID\n" +
+//                        "WHERE SubcategoryId = ?", new Object[]{SalonId},
+//                new BeanPropertyRowMapper<>(MoreServiceBySubCat.class));
+//
+//        for (MoreServiceBySubCat moreservSubCat : resList) {
+//            moreservSubCat.setWorkTimes(workTimeJdbc.findBSalonId(moreservSubCat.getSalonId()));
+//
+//        }
+//        return resList;
+//
+//
+//    }
+
+
 
     public ServiceSalon findByToken(String token) {
         return jdbcTemplate.queryForObject("SELECT * FROM ServiceSalon WHERE token = ?", new Object[]{token},

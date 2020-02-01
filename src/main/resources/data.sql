@@ -105,7 +105,7 @@ VALUES
 
 
 INSERT INTO UserSalon(id,login,name,password,phone,address,description,instaLogin,logoSalon,typeStatus)
-VALUES(1,'bermet03','Bermet','123','+996770595959','5-й микрорайон, 63Б
+VALUES(1,'bermet03','Beauty Studio','123','+996770595959','5-й микрорайон, 63Б
 5 м-н, Октябрьский район, Бишкек','Мы всегда рады видеть новых гостей в нашем салоне красоты!
 Широкий спектр услуг, отличное качество - по приемлемым ценам.','salon03','imageLogo.png',1);
 INSERT INTO UserSalon(id,login,name,password,phone,address,description,instaLogin,logoSalon,typeStatus)
@@ -504,3 +504,8 @@ VALUES(1,1,1,'500сом','400сом','Акция от салона красот�
 -- SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE  FROM ServiceSalon ss
 -- JOIN USERSALON us ON ss.SALONID = us.ID
 -- WHERE SubcategoryId = 3
+
+
+--SELECT sm.*, um.NAME, um.PHONE, um.workExperienceYear,um.ImageMaster,um.Description,um.Instagram,um.typeStatus  FROM ServiceMaster sm
+--JOIN USERMASTER um ON sm.USERMASTERID = um.ID
+--WHERE SubcategoryId = 1

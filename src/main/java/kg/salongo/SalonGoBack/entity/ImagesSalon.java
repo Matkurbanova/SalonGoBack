@@ -46,4 +46,10 @@ public class ImagesSalon {
                 ", Image='" + Image + '\'' +
                 '}';
     }
+
+//
+//    SELECT mss.*, mus.NAME, mus.ADDRESS, mus.PHONE,mus.typeStatus  FROM ServiceSalon mss
+//    JOIN USERSALON mus ON mss.SALONID = mus.ID
+//    WHERE SubcategoryId = 3
+
 }

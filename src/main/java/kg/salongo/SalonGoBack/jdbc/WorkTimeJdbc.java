@@ -27,6 +27,7 @@ public class WorkTimeJdbc {
     public List<WorkTime> findBSalonId(int salonId) {
         return  jdbcTemplate.query("SELECT*FROM WorkTime WHERE SALONID=?",new Object[]{salonId},new BeanPropertyRowMapper<>(WorkTime.class));
     }
+
 }
 
 

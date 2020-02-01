@@ -37,5 +37,3 @@ public class ServiceSalonController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 }
-
-

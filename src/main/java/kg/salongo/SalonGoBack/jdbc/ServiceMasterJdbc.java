@@ -37,7 +37,7 @@ public class ServiceMasterJdbc {
                 new BeanPropertyRowMapper<>(ServiceMaster.class));
     }
     public List<ServiceMasterBySubCat> findBySubCategory(int UserMasterId) {
-        List<ServiceMasterBySubCat> resList = jdbcTemplate.query("SELECT sm.*, um.NAME, um.PHONE, um.workExperienceYear,um.ImageMaster,um.Description,um.Instagram,um.typeStatus  FROM ServiceMaster sm\n" +
+        List<ServiceMasterBySubCat> resList = jdbcTemplate.query("SELECT sm.*, um.NAME, um.PHONE, um.workExperienceYear,um.ImageMaster,um.Instagram,um.typeStatus  FROM ServiceMaster sm\n" +
                         "JOIN USERMASTER um ON sm.USERMASTERID = um.ID\n" +
                         "WHERE SubcategoryId = ?", new Object[]{UserMasterId},
                 new BeanPropertyRowMapper<>(ServiceMasterBySubCat.class));
