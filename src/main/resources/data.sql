@@ -500,3 +500,7 @@ VALUES(1,1,'pokrytie shellakom.jpg');
 
 INSERT INTO Promo(id,SalonId,UserMasterId,newPrice,oldPrice,promoDescription,promoImage)
 VALUES(1,1,1,'500сом','400сом','Акция от салона красоты и мастера Камилла. Запись заранее по Вотсап:+996707556644','promoimage.jpeg');
+
+-- SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE  FROM ServiceSalon ss
+-- JOIN USERSALON us ON ss.SALONID = us.ID
+-- WHERE SubcategoryId = 3

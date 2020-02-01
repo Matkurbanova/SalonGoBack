@@ -1,14 +1,13 @@
 package kg.salongo.SalonGoBack.controllers;
 
 import kg.salongo.SalonGoBack.Response;
+import kg.salongo.SalonGoBack.data.ServiceMasterBySubCat;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
-import kg.salongo.SalonGoBack.entity.ServiceSalon;
 import kg.salongo.SalonGoBack.jdbc.ServiceMasterJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -18,8 +17,8 @@ public class ServiceMasterController {
     ServiceMasterJdbc serviceMasterJdbc;
 
     @RequestMapping("/api/servicemaster/{SubCategoryId}")
-    public Response<List<ServiceMaster>> getServiceMasters(@PathVariable("SubCategoryId") int serviceMasterId) {
-        return new Response(serviceMasterJdbc.findByUserMasterId(serviceMasterId));
+    public Response<List<ServiceMasterBySubCat>> getServiceMasters(@PathVariable("SubCategoryId") int serviceMasterId) {
+        return new Response(serviceMasterJdbc.findBySubCategory(serviceMasterId));
     }
 
     @RequestMapping(value = "/api/servicemaster/add", method = RequestMethod.POST)
@@ -33,6 +32,7 @@ public class ServiceMasterController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
+
 }
 
 

@@ -18,10 +18,14 @@ public class WorkTimeJdbc {
     public WorkTime findById(int id) {
         return  jdbcTemplate.queryForObject("SELECT*FROM WorkTime WHERE id=?",new Object[]{id},new BeanPropertyRowMapper<>(WorkTime.class));
     }
+
     public int deleteById(int id) {
         return  jdbcTemplate.update("DELETE FROM WorkTime WHERE id=?",
                 new Object[]{id});
+    }
 
+    public List<WorkTime> findBSalonId(int salonId) {
+        return  jdbcTemplate.query("SELECT*FROM WorkTime WHERE SALONID=?",new Object[]{salonId},new BeanPropertyRowMapper<>(WorkTime.class));
     }
 }
 

@@ -1,6 +1,7 @@
 package kg.salongo.SalonGoBack.controllers;
 
 import kg.salongo.SalonGoBack.Response;
+import kg.salongo.SalonGoBack.data.ServiceBySubCat;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
 
@@ -20,8 +21,8 @@ public class ServiceSalonController {
     ServiceSalonJdbc serviceSalonJdbc;
 
     @RequestMapping("/api/servicesalon/{SubCategoryId}")
-    public Response<List<ServiceSalon>> getServiceSalons(@PathVariable("SubCategoryId") int serviceSalonId) {
-        return new Response(serviceSalonJdbc.findBySalonId(serviceSalonId));
+    public Response<List<ServiceBySubCat>> getServiceSalons(@PathVariable("SubCategoryId") int serviceSalonId) {
+        return new Response(serviceSalonJdbc.findBySubCategory(serviceSalonId));
     }
 
     @RequestMapping(value = "/api/servicesalon/add", method = RequestMethod.POST)
