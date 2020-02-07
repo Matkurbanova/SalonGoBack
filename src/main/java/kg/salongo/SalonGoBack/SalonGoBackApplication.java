@@ -1,8 +1,6 @@
 package kg.salongo.SalonGoBack;
 
-import kg.salongo.SalonGoBack.entity.UserPersonal;
 import kg.salongo.SalonGoBack.jdbc.*;
-import kg.salongo.SalonGoBack.utils.GoFiles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,22 +8,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Date;
-
 @SpringBootApplication
 public class SalonGoBackApplication implements CommandLineRunner {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     SubCategoryJdbc subCategoryJdbc;
     CategoryJdbc categoryJdbcJdbc;
-    @Autowired
-    UserPersonalJdbc userPersonalJdbc;
-    UserSalonJdbc userSalonJdbc;
     WorkTimeJdbc workTimeJdbc;
     ServiceSalonJdbc serviceJdbc;
     SavedJdbc savedJdbc;
     ImagesSalonJdbc imagesSalonJdbc;
-    UserMasterJdbc userMasterJdbc;
+    UsersJdbc usersJdbc;
     ServiceMasterJdbc serviceMasterJdbc;
     ImagesMasterJdbc imagesMasterJdbc;
 

@@ -1,11 +1,13 @@
 package kg.salongo.SalonGoBack.controllers;
 
 import kg.salongo.SalonGoBack.Response;
+import kg.salongo.SalonGoBack.data.ServiceBySubCat;
 import kg.salongo.SalonGoBack.entity.Promo;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
 import kg.salongo.SalonGoBack.jdbc.PromoJdbc;
 import kg.salongo.SalonGoBack.jdbc.ServiceSalonJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +21,9 @@ public class PromoController {
         public Response<List<Promo>> getTypes() {
             return new Response(promoJdbc.findAll());
         }
+//        public Response<List<PromoByS>> getPromo(@PathVariable("SalonId") int PromoId) {
+//            return new Response(promoJdbc.findByPromoSalon(PromoId));
+//        }
 
     }
 

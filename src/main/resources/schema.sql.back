@@ -13,24 +13,32 @@ Id INT PRIMARY KEY AUTO_INCREMENT,
 FOREIGN KEY (CategoryId)  REFERENCES category (Id)
 
 );
--- simple user 1
--- master 2
--- salon 3
-Create TABLE users
+
+Create TABLE UserSalon
 (
   id int not null auto_increment primary key,
   login varchar(150) not null,
   name varchar(150) not null,
   password varchar(255) not null,
   phone varchar(150) not null,
-  address varchar(150) ,
-  description varchar(255),
-  instaLogin varchar(150),
-  image varchar(150),
-  status int(2) default 0,
-  type int(2) default 1 not null,
-  workExperienceYear varchar(10),
+  address varchar(150) not null,
+  description varchar(255) not null,
+  instaLogin varchar(150) not null,
+  logoSalon varchar(150) not null,
+  typeStatus int(2)not null,
   token varchar(255)
+);
+
+Create TABLE UserPersonal
+(
+  id int not null auto_increment primary key,
+  login varchar(150) not null,
+  password varchar(150) not null,
+  phone varchar(255) not null,
+  name varchar(150) not null,
+  avatarimages varchar(150) not null,
+  token varchar(255)
+
 );
 
 Create TABLE ServiceSalon
@@ -41,7 +49,7 @@ Id INT PRIMARY KEY AUTO_INCREMENT,
     Price varchar(150),
     Description varchar (250),
     Image varchar(150),
-FOREIGN KEY (SalonId)  REFERENCES users (Id),
+FOREIGN KEY (SalonId)  REFERENCES UserSalon (Id),
 FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
 );
 
@@ -51,7 +59,7 @@ Create TABLE Saved
     ServiceSalonId INT,
 
 
-FOREIGN KEY (UserId)  REFERENCES users (Id),
+FOREIGN KEY (UserId)  REFERENCES userpersonal (Id),
 FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
 
 );
@@ -72,10 +80,22 @@ Create TABLE WorkTime
     time_begin varchar(5),
     time_end varchar(5),
     PRIMARY KEY(id),
-    FOREIGN KEY (SalonId)  REFERENCES users (Id)
+    FOREIGN KEY (SalonId)  REFERENCES usersalon (Id)
 );
 
-
+Create TABLE UserMaster
+(
+  id int not null auto_increment primary key,
+  typeStatus int(2) not null,
+  login varchar(150) not null,
+  name varchar(150) not null,
+  password varchar(255) not null,
+  phone varchar(150) not null,
+  workExperienceYear varchar(150) not null,
+  ImageMaster varchar(150) not null,
+  Description varchar(550) not null,
+  Instagram varchar(150)
+);
 Create TABLE ServiceMaster
 (
 Id INT PRIMARY KEY AUTO_INCREMENT,
@@ -84,7 +104,7 @@ Id INT PRIMARY KEY AUTO_INCREMENT,
     Price varchar(150),
     Description varchar (250),
     Image varchar(150),
-FOREIGN KEY (UserMasterId)  REFERENCES users (id),
+FOREIGN KEY (UserMasterId)  REFERENCES UserMaster (Id),
 FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
 );
 
@@ -99,12 +119,13 @@ FOREIGN KEY (ServiceMasterId)  REFERENCES ServiceMaster (Id)
 Create TABLE Promo
 (
     Id INT PRIMARY KEY AUTO_INCREMENT,
-    UserId INT,
+    SalonId INT,
+    UserMasterId INT,
     newPrice varchar(150),
     oldPrice varchar(150),
     promoDescription varchar (250),
     promoImage varchar(150),
-FOREIGN KEY (UserId)  REFERENCES users (Id)
+FOREIGN KEY (UserMasterId)  REFERENCES UserMaster (Id)
 );
 
 --drop table if exists oauth_client_details;

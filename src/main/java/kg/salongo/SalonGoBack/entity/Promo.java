@@ -2,8 +2,7 @@ package kg.salongo.SalonGoBack.entity;
 
 public class Promo {
     private int id;
-    private int SalonId;
-    private int UserMasterId;
+    private int UserId;
     private String newPrice;
     private String oldPrice;
     private String promoDescription;
@@ -13,11 +12,10 @@ public class Promo {
     public Promo(){
 
     }
-    public Promo(int id, int SalonId, int UserMasterId,String newPrice,String oldPrice,String promoDescription,String productInfo,
+    public Promo(int id, int UserId,String newPrice,String oldPrice,String promoDescription,String productInfo,
                  String promoImage){
         this.id=id;
-        this.SalonId=SalonId;
-        this.UserMasterId=UserMasterId;
+        this.UserId =UserId;
         this.newPrice=newPrice;
         this.oldPrice=oldPrice;
         this.promoDescription=promoDescription;
@@ -35,20 +33,12 @@ public class Promo {
         this.id = id;
     }
 
-    public int getSalonId() {
-        return SalonId;
+    public int getUserId() {
+        return UserId;
     }
 
-    public void setSalonId(int salonId) {
-        SalonId = salonId;
-    }
-
-    public int getUserMasterId() {
-        return UserMasterId;
-    }
-
-    public void setUserMasterId(int userMasterId) {
-        UserMasterId = userMasterId;
+    public void setUserId(int userId) {
+        UserId = userId;
     }
 
     public String getNewPrice() {
@@ -95,8 +85,7 @@ public class Promo {
     public String toString() {
         return "Promo{" +
                 "id=" + id +
-                ", SalonId=" + SalonId +
-                ", UserMasterId=" + UserMasterId +
+                ", UserMasterId=" + UserId +
                 ", newPrice='" + newPrice + '\'' +
                 ", oldPrice='" + oldPrice + '\'' +
                 ", promoDescription='" + promoDescription + '\'' +

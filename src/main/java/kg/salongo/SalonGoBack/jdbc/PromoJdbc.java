@@ -1,15 +1,11 @@
 package kg.salongo.SalonGoBack.jdbc;
 
 import kg.salongo.SalonGoBack.entity.Promo;
-import kg.salongo.SalonGoBack.entity.UserPersonal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -41,16 +37,14 @@ public class PromoJdbc {
     }
 
 public int insert(Promo promo){
-return jdbcTemplate.update("insert into promo (id, SalonId, MasterId, newPrice,oldPrice,promoDescription,productInfo,promoImage) " + "values(?, ?, ?, ?, ?, ?, ?, ?)",
-        new Object[]{promo.getId(),promo.getSalonId(),promo.getUserMasterId(),promo.getNewPrice(),promo.getOldPrice(),promo.getPromoDescription(),
+return jdbcTemplate.update("insert into promo (id, UserId, newPrice,oldPrice,promoDescription,productInfo,promoImage) " + "values(?, ?, ?, ?, ?, ?, ?, ?)",
+        new Object[]{promo.getId(),promo.getUserId(),promo.getNewPrice(),promo.getOldPrice(),promo.getPromoDescription(),
                 promo.getProductInfo(),promo.getPromoImage()});
 
 }
 public int update(Promo promo){
-return jdbcTemplate.update("update promo " + "set id = ?, SalonId = ?, MasterId = ?, newPrice = ?,  oldPrice = ?, promoDescription = ?,productInfo = ?, avatarimages = 1" +
-        "where id = ?", new Object[]{promo.getId(),promo.getSalonId(),promo.getUserMasterId(),promo.getNewPrice(),promo.getOldPrice(),promo.getPromoDescription(),
+return jdbcTemplate.update("update promo " + "set id = ?,  UserId = ?, newPrice = ?,  oldPrice = ?, promoDescription = ?,productInfo = ?, avatarimages = 1" +
+        "where id = ?", new Object[]{promo.getId(),promo.getUserId(),promo.getNewPrice(),promo.getOldPrice(),promo.getPromoDescription(),
         promo.getProductInfo(),promo.getPromoImage()});
-}
-}
 
-
+    }}

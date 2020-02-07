@@ -1,8 +1,10 @@
 package kg.salongo.SalonGoBack.data;
 
+import kg.salongo.SalonGoBack.entity.ImagesMaster;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
 import kg.salongo.SalonGoBack.entity.WorkTime;
 
+import java.awt.*;
 import java.util.List;
 
 public class MoreServiceBySubCat extends ServiceSalon {
@@ -11,6 +13,7 @@ public class MoreServiceBySubCat extends ServiceSalon {
     String phone;
     int typeStatus;
     List<WorkTime> workTimes;
+
 
     public int getTypeStatus() {
         return typeStatus;
@@ -51,4 +54,6 @@ public class MoreServiceBySubCat extends ServiceSalon {
     public void setWorkTimes(List<WorkTime> workTimes) {
         this.workTimes = workTimes;
     }
+
+
 }
