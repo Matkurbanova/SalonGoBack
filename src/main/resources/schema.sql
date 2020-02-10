@@ -1,111 +1,111 @@
-Create TABLE Category
-(
-  id int not null auto_increment primary key,
-  nameCategory varchar(150) not null,
-  image varchar(150) not null
-);
-
-Create TABLE SubCategory
-(
-Id INT PRIMARY KEY AUTO_INCREMENT,
-    CategoryId INT,
-    name varchar(150) not null,
-FOREIGN KEY (CategoryId)  REFERENCES category (Id)
-
-);
--- simple user 1
--- master 2
--- salon 3
-Create TABLE users
-(
-  id int not null auto_increment primary key,
-  login varchar(150) not null,
-  name varchar(150) not null,
-  password varchar(255) not null,
-  phone varchar(150) not null,
-  address varchar(150) ,
-  description varchar(255),
-  instaLogin varchar(150),
-  image varchar(150),
-  status int(2) default 0,
-  type int(2) default 1 not null,
-  workExperienceYear varchar(10),
-  token varchar(255)
-);
-
-Create TABLE ServiceSalon
-(
-Id INT PRIMARY KEY AUTO_INCREMENT,
-    SalonId INT,
-    SubCategoryId INT,
-    Price varchar(150),
-    Description varchar (250),
-    Image varchar(150),
-FOREIGN KEY (SalonId)  REFERENCES users (Id),
-FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
-);
-
-Create TABLE Saved
-(
-    UserId INT,
-    ServiceSalonId INT,
-
-
-FOREIGN KEY (UserId)  REFERENCES users (Id),
-FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
-
-);
-
-Create TABLE ImagesSalon
-(
-id int not null auto_increment primary key,
-    ServiceSalonId INT,
-    Image varchar(150),
-FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
-);
-
-Create TABLE WorkTime
-(
-    id INT AUTO_INCREMENT NOT NULL,
-    SalonId INT,
-    day TINYINT,
-    time_begin varchar(5),
-    time_end varchar(5),
-    PRIMARY KEY(id),
-    FOREIGN KEY (SalonId)  REFERENCES users (Id)
-);
-
-
-Create TABLE ServiceMaster
-(
-Id INT PRIMARY KEY AUTO_INCREMENT,
-    UserMasterId INT,
-    SubCategoryId INT,
-    Price varchar(150),
-    Description varchar (250),
-    Image varchar(150),
-FOREIGN KEY (UserMasterId)  REFERENCES users (id),
-FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
-);
-
-Create TABLE ImagesMaster
-(
-id int not null auto_increment primary key,
-    ServiceMasterId INT,
-    Image varchar(150),
-FOREIGN KEY (ServiceMasterId)  REFERENCES ServiceMaster (Id)
-);
-
-Create TABLE Promo
-(
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    UserId INT,
-    newPrice varchar(150),
-    oldPrice varchar(150),
-    promoDescription varchar (250),
-    promoImage varchar(150),
-FOREIGN KEY (UserId)  REFERENCES users (Id)
-);
+--Create TABLE Category
+--(
+--  id int not null auto_increment primary key,
+--  nameCategory varchar(150) not null,
+--  image varchar(150) not null
+--);
+--
+--Create TABLE SubCategory
+--(
+--Id INT PRIMARY KEY AUTO_INCREMENT,
+--    CategoryId INT,
+--    name varchar(150) not null,
+--FOREIGN KEY (CategoryId)  REFERENCES category (Id)
+--
+--);
+---- simple user 1
+---- master 2
+---- salon 3
+--Create TABLE users
+--(
+--  id int not null auto_increment primary key,
+--  login varchar(150) not null,
+--  name varchar(150) not null,
+--  password varchar(255) not null,
+--  phone varchar(150) not null,
+--  address varchar(150) ,
+--  description varchar(255),
+--  instaLogin varchar(150),
+--  image varchar(150),
+--  status int(2) default 0,
+--  type int(2) default 1 not null,
+--  workExperienceYear varchar(10),
+--  token varchar(255)
+--);
+--
+--Create TABLE ServiceSalon
+--(
+--Id INT PRIMARY KEY AUTO_INCREMENT,
+--    SalonId INT,
+--    SubCategoryId INT,
+--    Price varchar(150),
+--    Description varchar (250),
+--    Image varchar(150),
+--FOREIGN KEY (SalonId)  REFERENCES users (Id),
+--FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
+--);
+--
+--Create TABLE Saved
+--(
+--    UserId INT,
+--    ServiceSalonId INT,
+--
+--
+--FOREIGN KEY (UserId)  REFERENCES users (Id),
+--FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
+--
+--);
+--
+--Create TABLE ImagesSalon
+--(
+--id int not null auto_increment primary key,
+--    ServiceSalonId INT,
+--    Image varchar(150),
+--FOREIGN KEY (ServiceSalonId)  REFERENCES ServiceSalon (Id)
+--);
+--
+--Create TABLE WorkTime
+--(
+--    id INT AUTO_INCREMENT NOT NULL,
+--    SalonId INT,
+--    day TINYINT,
+--    time_begin varchar(5),
+--    time_end varchar(5),
+--    PRIMARY KEY(id),
+--    FOREIGN KEY (SalonId)  REFERENCES users (Id)
+--);
+--
+--
+--Create TABLE ServiceMaster
+--(
+--Id INT PRIMARY KEY AUTO_INCREMENT,
+--    UserMasterId INT,
+--    SubCategoryId INT,
+--    Price varchar(150),
+--    Description varchar (250),
+--    Image varchar(150),
+--FOREIGN KEY (UserMasterId)  REFERENCES users (id),
+--FOREIGN KEY (SubCategoryId)  REFERENCES SubCategory (Id)
+--);
+--
+--Create TABLE ImagesMaster
+--(
+--id int not null auto_increment primary key,
+--    ServiceMasterId INT,
+--    Image varchar(150),
+--FOREIGN KEY (ServiceMasterId)  REFERENCES ServiceMaster (Id)
+--);
+--
+--Create TABLE Promo
+--(
+--    Id INT PRIMARY KEY AUTO_INCREMENT,
+--    UserId INT,
+--    newPrice varchar(150),
+--    oldPrice varchar(150),
+--    promoDescription varchar (250),
+--    promoImage varchar(150),
+--FOREIGN KEY (UserId)  REFERENCES users (Id)
+--);
 
 --drop table if exists oauth_client_details;
 --create table oauth_client_details (

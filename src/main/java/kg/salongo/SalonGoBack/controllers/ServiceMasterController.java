@@ -21,6 +21,7 @@ public class ServiceMasterController {
         return new Response(serviceMasterJdbc.findBySubCategory(serviceMasterId));
     }
 
+
     @RequestMapping(value = "/api/servicemaster/add", method = RequestMethod.POST)
     public ResponseEntity<Response<ServiceMaster>> addServiceMaster(
             @RequestHeader("token") String token,

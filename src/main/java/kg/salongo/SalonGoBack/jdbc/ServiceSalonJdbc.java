@@ -1,17 +1,14 @@
 package kg.salongo.SalonGoBack.jdbc;
 
-import kg.salongo.SalonGoBack.data.MoreServiceBySubCat;
 import kg.salongo.SalonGoBack.data.ServiceBySubCat;
-import kg.salongo.SalonGoBack.entity.ServiceMaster;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
-import kg.salongo.SalonGoBack.entity.SubCategory;
-import kg.salongo.SalonGoBack.entity.WorkTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Repository
@@ -43,8 +40,8 @@ public class ServiceSalonJdbc {
     }
 
     public List<ServiceBySubCat> findBySubCategory(int SalonId) {
-        List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE,us.typeStatus  FROM ServiceSalon ss" +
-                        " JOIN USERSALON us ON ss.SALONID = us.ID" +
+        List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE,us.status  FROM ServiceSalon ss" +
+                        " JOIN users us ON ss.SALONID = us.ID" +
                         " WHERE SubcategoryId = ?", new Object[]{SalonId},
                 new BeanPropertyRowMapper<>(ServiceBySubCat.class));
 
