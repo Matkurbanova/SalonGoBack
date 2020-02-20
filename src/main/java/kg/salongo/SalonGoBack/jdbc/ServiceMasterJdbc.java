@@ -2,6 +2,7 @@ package kg.salongo.SalonGoBack.jdbc;
 
 import kg.salongo.SalonGoBack.data.ServiceMasterBySubCat;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
+import kg.salongo.SalonGoBack.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,6 +25,16 @@ public class ServiceMasterJdbc {
                 new Object[]{id}, new BeanPropertyRowMapper<>(ServiceMaster.class));
     }
 
+    public int save(ServiceMaster sMaster) {
+        return jdbcTemplate.update("INSERT INTO ServiceMaster (UserMasterId, SubCategoryId,Price,Description,Image) " +
+                        "VALUES (?,?,?,?,?)",
+                sMaster.getUserMasterId(),
+                sMaster.getSubCategoryId(),
+                sMaster.getPrice(),
+                sMaster.getDescription(),
+                sMaster.getImage());
+    }
+
     public int deleteById(int id) {
         return jdbcTemplate.update("DELETE FROM ServiceMaster WHERE id=?",
                 new Object[]{id});
@@ -34,6 +45,7 @@ public class ServiceMasterJdbc {
         return jdbcTemplate.query("SELECT * FROM ServiceMaster WHERE UserMasterId = ?", new Object[]{UserMasterId},
                 new BeanPropertyRowMapper<>(ServiceMaster.class));
     }
+
     public List<ServiceMasterBySubCat> findBySubCategory(int UserMasterId) {
         List<ServiceMasterBySubCat> resList = jdbcTemplate.query("SELECT sm.*, um.NAME, um.PHONE, um.workExperienceYear,um.image,um.instalogin,um.status  FROM ServiceMaster sm\n" +
                         "JOIN users um ON sm.USERMASTERID = um.ID\n" +
@@ -41,15 +53,6 @@ public class ServiceMasterJdbc {
                 new BeanPropertyRowMapper<>(ServiceMasterBySubCat.class));
 
 
-
         return resList;
     }
-
-
-
-    public ServiceMaster findByToken(String token) {
-        return jdbcTemplate.queryForObject("SELECT * FROM ServiceMaster WHERE token = ?", new Object[]{token},
-                new BeanPropertyRowMapper<>(ServiceMaster.class));
-    }
-
 }

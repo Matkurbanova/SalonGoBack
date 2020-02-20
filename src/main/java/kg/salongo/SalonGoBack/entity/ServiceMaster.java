@@ -3,22 +3,30 @@ package kg.salongo.SalonGoBack.entity;
 public class ServiceMaster {
     private int id;
     private int UserMasterId;
+    private int subCategoryId;
     private String Price;
     private String Description;
     private String Image;
 
-public ServiceMaster() {
+    public ServiceMaster() {
 
-}
-    public ServiceMaster(int id,int UserMasterId,String Price,String Description,String Image){
-    this.id=id;
-    this.UserMasterId=UserMasterId;
-    this.Price=Price;
-    this.Description=Description;
-    this.Image=Image;
+    }
 
+    public ServiceMaster(int id, int UserMasterId, String Price, String Description, String Image) {
+        this.id = id;
+        this.UserMasterId = UserMasterId;
+        this.Price = Price;
+        this.Description = Description;
+        this.Image = Image;
+    }
 
-}
+    public int getSubCategoryId() {
+        return subCategoryId;
+    }
+
+    public void setSubCategoryId(int subCategoryId) {
+        this.subCategoryId = subCategoryId;
+    }
 
     public int getId() {
         return id;

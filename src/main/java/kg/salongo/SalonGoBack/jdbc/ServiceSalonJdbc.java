@@ -1,6 +1,7 @@
 package kg.salongo.SalonGoBack.jdbc;
 
 import kg.salongo.SalonGoBack.data.ServiceBySubCat;
+import kg.salongo.SalonGoBack.entity.ServiceMaster;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,15 @@ public class ServiceSalonJdbc {
                 new Object[]{id});
 
     }
-
+    public int save(ServiceSalon sSalon) {
+        return jdbcTemplate.update("INSERT INTO ServiceSalon (SalonId, SubCategoryId,Price,Description,Image) " +
+                        "VALUES (?,?,?,?,?)",
+                sSalon.getSalonId(),
+                sSalon.getSubCategoryId(),
+                sSalon.getPrice(),
+                sSalon.getDescription(),
+                sSalon.getImage());
+    }
     public List<ServiceSalon> findBySalonId(int SalonId) {
         return jdbcTemplate.query("SELECT * FROM ServiceSalon WHERE SalonId = ?", new Object[]{SalonId},
                 new BeanPropertyRowMapper<>(ServiceSalon.class));
@@ -42,7 +51,7 @@ public class ServiceSalonJdbc {
     public List<ServiceBySubCat> findBySubCategory(int SalonId) {
         List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE,us.status  FROM ServiceSalon ss" +
                         " JOIN users us ON ss.SALONID = us.ID" +
-                        " WHERE SubcategoryId = ?", new Object[]{SalonId},
+                        " WHERE SubCategoryId = ?", new Object[]{SalonId},
                 new BeanPropertyRowMapper<>(ServiceBySubCat.class));
 
         for (ServiceBySubCat servSubCat : resList) {

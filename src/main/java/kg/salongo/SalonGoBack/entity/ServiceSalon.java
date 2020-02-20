@@ -19,6 +19,14 @@ private String Image;
         this.Description=Description;
         this.Image=Image;   }
 
+    public int getSubCategoryId() {
+        return SubCategoryId;
+    }
+
+    public void setSubCategoryId(int subCategoryId) {
+        SubCategoryId = subCategoryId;
+    }
+
     public int getId() {
         return Id;
     }

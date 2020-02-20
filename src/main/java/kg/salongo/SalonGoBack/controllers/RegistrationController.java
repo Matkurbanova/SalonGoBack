@@ -1,5 +1,6 @@
 package kg.salongo.SalonGoBack.controllers;
 
+import kg.salongo.SalonGoBack.Regexs;
 import kg.salongo.SalonGoBack.Response;
 import kg.salongo.SalonGoBack.entity.User;
 import kg.salongo.SalonGoBack.jdbc.UsersJdbc;
@@ -25,6 +26,9 @@ public class RegistrationController {
             @RequestParam("phone") String phone,
             @RequestParam("name") String name
     ) {
+        if (!login.trim().matches(Regexs.LOGIN_FORMAT)) {
+            return new Response(-2, "Wrong login format");
+        }
         String token = RandomUtils.createToken();
         User userPersonal = new User(login, name, password, phone, "avatarUser.png", token);
         int id = usersJDBC.insert(userPersonal);
@@ -43,6 +47,9 @@ public class RegistrationController {
             @RequestParam("Instagram") String Instagram,
             @RequestParam("image") MultipartFile image
     ) {
+        if (!login.trim().matches(Regexs.LOGIN_FORMAT)) {
+            return new Response(-2, "Wrong login format");
+        }
 
         String fileName = "";
         try {
@@ -78,6 +85,9 @@ public class RegistrationController {
             @RequestParam("image") MultipartFile image
     ) {
 
+        if (!login.trim().matches(Regexs.LOGIN_FORMAT)) {
+            return new Response(-2, "Wrong login format");
+        }
 
         String fileName = "";
         try {

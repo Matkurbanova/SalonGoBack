@@ -36,6 +36,11 @@ public class UsersJdbc {
         }
     }
 
+    public User findByToken(String token) {
+        return jdbcTemplate.queryForObject("SELECT * FROM users WHERE token = ?", new Object[]{token},
+                new BeanPropertyRowMapper<>(User.class));
+    }
+
     public int deleteById(int id) {
         return jdbcTemplate.update("DELETE FROM users WHERE id=?",
                 new Object[]{id});
