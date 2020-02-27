@@ -19,7 +19,8 @@ public class AuthController {
     UsersJdbc usersJdbc;
 
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
-    public Response<UserPersonal> login(@RequestParam("login") String login, @RequestParam("password") String password) {
+    public Response<UserPersonal> login(@RequestParam("login") String login,
+                                        @RequestParam("password") String password) {
         try {
             User user = usersJdbc.findByLogin(login.trim());
             user.setToken(RandomUtils.createToken());
@@ -29,10 +30,9 @@ public class AuthController {
         } catch (Exception ex) {
             ex.printStackTrace();
             return new Response(-1, "No user with login " + login);
+
         }
-
-
-/* TODO:
+        /* TODO:
 * MD5 шифрование пароля
 * проверка пароля
 

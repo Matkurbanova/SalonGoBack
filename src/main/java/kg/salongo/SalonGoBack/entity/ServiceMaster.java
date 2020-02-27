@@ -5,6 +5,7 @@ public class ServiceMaster {
     private int UserMasterId;
     private int subCategoryId;
     private String Price;
+    private String workExperienceYear;
     private String Description;
     private String Image;
 
@@ -12,12 +13,21 @@ public class ServiceMaster {
 
     }
 
-    public ServiceMaster(int id, int UserMasterId, String Price, String Description, String Image) {
+    public ServiceMaster(int id, int UserMasterId, String Price, String workExperienceYear, String Description, String Image) {
         this.id = id;
         this.UserMasterId = UserMasterId;
         this.Price = Price;
+        this.workExperienceYear=workExperienceYear;
         this.Description = Description;
         this.Image = Image;
+    }
+
+    public String getWorkExperienceYear() {
+        return workExperienceYear;
+    }
+
+    public void setWorkExperienceYear(String workExperienceYear) {
+        this.workExperienceYear = workExperienceYear;
     }
 
     public int getSubCategoryId() {
@@ -73,7 +83,9 @@ public class ServiceMaster {
         return "ServiceMaster{" +
                 "id=" + id +
                 ", UserMasterId=" + UserMasterId +
+                ", subCategoryId=" + subCategoryId +
                 ", Price='" + Price + '\'' +
+                ", workExperienceYear='" + workExperienceYear + '\'' +
                 ", Description='" + Description + '\'' +
                 ", Image='" + Image + '\'' +
                 '}';

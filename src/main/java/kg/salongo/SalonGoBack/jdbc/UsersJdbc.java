@@ -35,6 +35,16 @@ public class UsersJdbc {
             return null;
         }
     }
+    public User findByPassword(String password) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT*FROM users WHERE PASSWORD=?", new Object[]{password},
+                    new BeanPropertyRowMapper<>(User.class));
+        } catch (EmptyResultDataAccessException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
 
     public User findByToken(String token) {
         return jdbcTemplate.queryForObject("SELECT * FROM users WHERE token = ?", new Object[]{token},

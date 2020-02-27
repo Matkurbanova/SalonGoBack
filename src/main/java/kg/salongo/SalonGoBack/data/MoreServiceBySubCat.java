@@ -11,9 +11,19 @@ public class MoreServiceBySubCat extends ServiceSalon {
     String name;
     String address;
     String phone;
+    String Description;
     int typeStatus;
     List<WorkTime> workTimes;
 
+    @Override
+    public String getDescription() {
+        return Description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        Description = description;
+    }
 
     public int getTypeStatus() {
         return typeStatus;

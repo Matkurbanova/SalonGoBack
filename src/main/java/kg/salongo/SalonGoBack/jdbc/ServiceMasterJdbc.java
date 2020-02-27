@@ -1,7 +1,10 @@
 package kg.salongo.SalonGoBack.jdbc;
 
+import kg.salongo.SalonGoBack.data.MoreServiceBySubCat;
 import kg.salongo.SalonGoBack.data.ServiceMasterBySubCat;
+import kg.salongo.SalonGoBack.entity.Category;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
+import kg.salongo.SalonGoBack.entity.SubCategory;
 import kg.salongo.SalonGoBack.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -51,8 +54,37 @@ public class ServiceMasterJdbc {
                         "JOIN users um ON sm.USERMASTERID = um.ID\n" +
                         "WHERE SubcategoryId = ?", new Object[]{UserMasterId},
                 new BeanPropertyRowMapper<>(ServiceMasterBySubCat.class));
+        return resList;
+    }
+
+
+    public List<Category> findByUserMaster(int UserMasterId) {
+        List<Category> resList = jdbcTemplate.query("select c.* from servicemaster sm " +
+                        "LEFT JOIN subcategory sc ON sc.Id = sm.SubcategoryId " +
+                        "LEFT JOIN category c ON c.Id = sc.CategoryId " +
+                        "WHERE sm.UserMasterId = ? " +
+                        "group by c.Id;", new Object[]{UserMasterId},
+                new BeanPropertyRowMapper<>(Category.class));
 
 
         return resList;
     }
+    public List<SubCategory> findByCategoryId(int UserMasterId,int CategoryId) {
+        List<SubCategory> resList = jdbcTemplate.query("select sc.* from servicemaster sm " +
+                        "LEFT JOIN subcategory sc ON sc.Id = sm.SubcategoryId " +
+                        "WHERE sm.UserMasterId =? AND sc.CategoryId =? " +
+                        "group by sc.Id;", new Object[]{UserMasterId,CategoryId},
+                new BeanPropertyRowMapper<>(SubCategory.class));
+
+
+        return resList;
+    }
+    public List<ServiceMaster>findBySubCategoryId(int masterId,int subcategoryId){
+        List<ServiceMaster>resList=jdbcTemplate.query(
+                "SELECT * FROM servicemaster WHERE UserMasterId = ? AND subcategoryId = ?",
+                new Object[]{masterId,subcategoryId} ,
+                new BeanPropertyRowMapper<>(ServiceMaster.class));
+        return resList;
+    }
+
 }

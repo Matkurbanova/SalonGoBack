@@ -7,6 +7,9 @@ public class Category {
     @Column(name = "nameCategory")
     private String nameCategory;
     private String image;
+
+
+
     public Category(){
 
     }
