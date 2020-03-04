@@ -1,9 +1,11 @@
 package kg.salongo.SalonGoBack.jdbc;
 
 import kg.salongo.SalonGoBack.data.ServiceBySubCat;
+import kg.salongo.SalonGoBack.entity.Category;
 import kg.salongo.SalonGoBack.entity.ServiceMaster;
 import kg.salongo.SalonGoBack.entity.ServiceSalon;
 
+import kg.salongo.SalonGoBack.entity.SubCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -58,6 +60,39 @@ public class ServiceSalonJdbc {
             servSubCat.setWorkTimes(workTimeJdbc.findBSalonId(servSubCat.getSalonId()));
         }
 
+
+
+        return resList;
+    }
+
+
+    public List<Category> findByUserSalon(int SalonId) {
+        List<Category> resList = jdbcTemplate.query("select c.* from servicesalon ss" +
+                        "LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId" +
+                        "LEFT JOIN category c ON c.Id = sc.CategoryId" +
+                        "WHERE ss.SalonId = ?" +
+                        "group by c.Id;", new Object[]{SalonId},
+                new BeanPropertyRowMapper<>(Category.class));
+
+
+        return resList;
+    }
+    public List<SubCategory> findByCategoryId(int SalonId, int CategoryId) {
+        List<SubCategory> resList = jdbcTemplate.query("select sc.* from servicesalon ss" +
+                        "LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId" +
+                        "WHERE ss.SalonId = ? AND sc.CategoryId = ?" +
+                        "group by sc.Id;", new Object[]{SalonId,CategoryId},
+                new BeanPropertyRowMapper<>(SubCategory.class));
+
+
+        return resList;
+    }
+
+    public List<ServiceSalon>findBySubCategoryId(int salonId,int subcategoryId){
+        List<ServiceSalon>resList=jdbcTemplate.query(
+                "SELECT * FROM servicesalon WHERE SalonId = ? AND subcategoryId = ?",
+                new Object[]{salonId,subcategoryId} ,
+                new BeanPropertyRowMapper<>(ServiceSalon.class));
         return resList;
     }
 //    public List<MoreServiceBySubCat>findBySubCategoryId(int SalonId) {

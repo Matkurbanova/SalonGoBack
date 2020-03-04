@@ -343,3 +343,34 @@
 --
 ----SELECT ps.*,   FROM Promo ps
 ----JOIN Promo p ON ps.SALONID = p.ID
+
+
+
+
+--04.03.20
+--
+--select c.* from servicesalon ss
+--LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId
+--LEFT JOIN category c ON c.Id = sc.CategoryId
+--WHERE ss.SalonId = 2
+--group by c.Id;
+--
+--select sc.* from servicesalon ss
+--LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId
+--WHERE ss.SalonId = 2 AND sc.CategoryId = 2
+--group by sc.Id;
+--
+--SELECT * FROM servicesalon WHERE SalonId = 2 AND subcategoryId = 13
+
+--select c.* from servicemaster sm
+--LEFT JOIN subcategory sc ON sc.Id = sm.SubcategoryId
+--LEFT JOIN category c ON c.Id = sc.CategoryId
+--WHERE sm.UserMasterId = 4
+--group by c.Id;
+--
+--select sc.* from servicemaster sm
+--LEFT JOIN subcategory sc ON sc.Id = sm.SubcategoryId
+--WHERE sm.UserMasterId = 4 AND sc.CategoryId = 2
+--group by sc.Id;
+--
+--SELECT * FROM servicemaster WHERE UserMasterId = 4 AND subcategoryId = 13

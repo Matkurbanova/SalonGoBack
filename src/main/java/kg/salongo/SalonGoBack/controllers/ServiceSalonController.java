@@ -2,11 +2,8 @@ package kg.salongo.SalonGoBack.controllers;
 
 import kg.salongo.SalonGoBack.Response;
 import kg.salongo.SalonGoBack.data.ServiceBySubCat;
-import kg.salongo.SalonGoBack.entity.ServiceMaster;
-import kg.salongo.SalonGoBack.entity.ServiceSalon;
+import kg.salongo.SalonGoBack.entity.*;
 
-import kg.salongo.SalonGoBack.entity.SubCategory;
-import kg.salongo.SalonGoBack.entity.User;
 import kg.salongo.SalonGoBack.jdbc.ServiceSalonJdbc;
 
 import kg.salongo.SalonGoBack.jdbc.UsersJdbc;
@@ -31,6 +28,28 @@ public class ServiceSalonController {
     public Response<List<ServiceBySubCat>> getServiceSalons(@PathVariable("SubCategoryId") int serviceSalonId) {
         return new Response(serviceSalonJdbc.findBySubCategory(serviceSalonId));
     }
+
+    @RequestMapping("/api/servicesalon/saloncategories/{salonId}")
+    public Response<List<Category>> getMoreServiceSalons(
+            @PathVariable("salonId") int salonId) {
+
+        return new Response(serviceSalonJdbc.findByUserSalon(salonId));
+    }
+    @RequestMapping("/api/servicesalon/salonsubcategories/{salonId}/{categoryId}")
+    public Response<List<SubCategory>> findByCategoryId(
+            @PathVariable("salonId") int salonId,
+            @PathVariable("categoryId") int categoryId) {
+        return new Response(serviceSalonJdbc.findByCategoryId(salonId, categoryId));
+
+    }
+    @RequestMapping("/api/servicesalon/salonservice/{salonId}/{subcategoryId}")
+    public Response<List<ServiceSalon>> findBySubCategoryId(
+            @PathVariable("salonId") int salonId,
+            @PathVariable("subcategoryId") int subcategoryId) {
+        return new Response(serviceSalonJdbc.findBySubCategoryId(salonId, subcategoryId));
+
+    }
+
 
     @RequestMapping(value = "/api/servicesalon/add", method = RequestMethod.POST)
     public ResponseEntity<Response<ServiceSalon>> addServiceSalon(
