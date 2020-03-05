@@ -51,9 +51,9 @@ public class ServiceSalonJdbc {
     }
 
     public List<ServiceBySubCat> findBySubCategory(int SalonId) {
-        List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE,us.status  FROM ServiceSalon ss" +
-                        " JOIN users us ON ss.SALONID = us.ID" +
-                        " WHERE SubCategoryId = ?", new Object[]{SalonId},
+        List<ServiceBySubCat> resList = jdbcTemplate.query("SELECT ss.*, us.NAME, us.ADDRESS, us.PHONE,us.status  FROM ServiceSalon ss " +
+                        " JOIN users us ON ss.SALONID = us.ID " +
+                        " WHERE SubCategoryId = ? ", new Object[]{SalonId},
                 new BeanPropertyRowMapper<>(ServiceBySubCat.class));
 
         for (ServiceBySubCat servSubCat : resList) {
@@ -67,21 +67,21 @@ public class ServiceSalonJdbc {
 
 
     public List<Category> findByUserSalon(int SalonId) {
-        List<Category> resList = jdbcTemplate.query("select c.* from servicesalon ss" +
-                        "LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId" +
-                        "LEFT JOIN category c ON c.Id = sc.CategoryId" +
-                        "WHERE ss.SalonId = ?" +
-                        "group by c.Id;", new Object[]{SalonId},
+        List<Category> resList = jdbcTemplate.query("select c.* from servicesalon ss " +
+                        "LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId " +
+                        "LEFT JOIN category c ON c.Id = sc.CategoryId " +
+                        "WHERE ss.SalonId = ? " +
+                        "group by c.Id; ", new Object[]{SalonId},
                 new BeanPropertyRowMapper<>(Category.class));
 
 
         return resList;
     }
     public List<SubCategory> findByCategoryId(int SalonId, int CategoryId) {
-        List<SubCategory> resList = jdbcTemplate.query("select sc.* from servicesalon ss" +
-                        "LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId" +
-                        "WHERE ss.SalonId = ? AND sc.CategoryId = ?" +
-                        "group by sc.Id;", new Object[]{SalonId,CategoryId},
+        List<SubCategory> resList = jdbcTemplate.query("select sc.* from servicesalon ss " +
+                        "LEFT JOIN subcategory sc ON sc.Id = ss.SubcategoryId " +
+                        "WHERE ss.SalonId = ? AND sc.CategoryId = ? " +
+                        "group by sc.Id; ", new Object[]{SalonId,CategoryId},
                 new BeanPropertyRowMapper<>(SubCategory.class));
 
 
@@ -90,7 +90,7 @@ public class ServiceSalonJdbc {
 
     public List<ServiceSalon>findBySubCategoryId(int salonId,int subcategoryId){
         List<ServiceSalon>resList=jdbcTemplate.query(
-                "SELECT * FROM servicesalon WHERE SalonId = ? AND subcategoryId = ?",
+                "SELECT * FROM servicesalon WHERE SalonId = ? AND subcategoryId = ? ",
                 new Object[]{salonId,subcategoryId} ,
                 new BeanPropertyRowMapper<>(ServiceSalon.class));
         return resList;
@@ -113,7 +113,7 @@ public class ServiceSalonJdbc {
 
 
     public ServiceSalon findByToken(String token) {
-        return jdbcTemplate.queryForObject("SELECT * FROM ServiceSalon WHERE token = ?", new Object[]{token},
+        return jdbcTemplate.queryForObject("SELECT * FROM ServiceSalon WHERE token = ? ", new Object[]{token},
                 new BeanPropertyRowMapper<>(ServiceSalon.class));
     }
 
