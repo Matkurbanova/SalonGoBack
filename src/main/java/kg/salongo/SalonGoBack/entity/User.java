@@ -11,7 +11,7 @@ public class User {
     private String instaLogin;
     private String image;
     private int status;
-    private int type;
+    private int type = 1;
     private String workExperienceYear;
     private String token;
 

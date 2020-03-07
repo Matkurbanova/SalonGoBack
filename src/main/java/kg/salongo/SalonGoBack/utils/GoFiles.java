@@ -13,7 +13,7 @@ import java.nio.file.StandardCopyOption;
 
 public class GoFiles {
 
-    public static final String storage = "G:/salonGoFiles/";
+    public static final String storage = "C:/salonGoFiles/";
     public static final String serviceImagesStorage = storage + "service_images/";
 
     public static String save(MultipartFile file) throws Exception {

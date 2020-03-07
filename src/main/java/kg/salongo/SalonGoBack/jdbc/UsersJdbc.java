@@ -71,7 +71,7 @@ public class UsersJdbc {
                 , userMaster.getType());
 
         if (resCount > 0) {
-            return jdbcTemplate.queryForObject("SELECT MAX(id) FROM userMaster", Integer.class);
+            return jdbcTemplate.queryForObject("SELECT MAX(id) FROM users", Integer.class);
         }
         return -1;
     }

@@ -32,19 +32,17 @@ public class RegistrationController {
         String token = RandomUtils.createToken();
         User userPersonal = new User(login, name, password, phone, "avatarUser.png", token);
         int id = usersJDBC.insert(userPersonal);
+        userPersonal.setId(id);
         return new Response(userPersonal);
     }
 
     @RequestMapping(value = "/api/register/master", method = RequestMethod.POST)
     public Response register(
-            @RequestParam("typeStatus") int typeStatus,
             @RequestParam("login") String login,
             @RequestParam("name") String name,
             @RequestParam("password") String password,
             @RequestParam("phone") String phone,
             @RequestParam("workExperienceYear") String workExperienceYear,
-            @RequestParam("Description") String Description,
-            @RequestParam("Instagram") String Instagram,
             @RequestParam("image") MultipartFile image
     ) {
         if (!login.trim().matches(Regexs.LOGIN_FORMAT)) {
@@ -57,7 +55,7 @@ public class RegistrationController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        User user = new User(login, name, password, phone, workExperienceYear, fileName, Description, Instagram, 2);
+        User user = new User(login, name, password, phone, workExperienceYear, fileName);
         User isExists = usersJDBC.findByLogin(user.getLogin());
         if (isExists == null) {
             int id = usersJDBC.insert(user);
