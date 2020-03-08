@@ -43,7 +43,7 @@ public class RegistrationController {
             @RequestParam("password") String password,
             @RequestParam("phone") String phone,
             @RequestParam("workExperienceYear") String workExperienceYear,
-            @RequestParam("image") MultipartFile image
+            @RequestParam(value = "image", required = false) MultipartFile image
     ) {
         if (!login.trim().matches(Regexs.LOGIN_FORMAT)) {
             return new Response(-2, "Wrong login format");

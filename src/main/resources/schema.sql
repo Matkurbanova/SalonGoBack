@@ -106,7 +106,7 @@
 --    promoImage varchar(150),
 --FOREIGN KEY (UserId)  REFERENCES users (Id)
 --);
-
+--
 --drop table if exists oauth_client_details;
 --create table oauth_client_details (
 --  client_id VARCHAR(255) PRIMARY KEY,
