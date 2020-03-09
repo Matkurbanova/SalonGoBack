@@ -343,10 +343,10 @@
 --
 ----SELECT ps.*,   FROM Promo ps
 ----JOIN Promo p ON ps.SALONID = p.ID
-
-
-
-
+--
+--
+--
+--
 --04.03.20
 --
 --select c.* from servicesalon ss
@@ -361,7 +361,7 @@
 --group by sc.Id;
 --
 --SELECT * FROM servicesalon WHERE SalonId = 2 AND subcategoryId = 13
-
+--
 --select c.* from servicemaster sm
 --LEFT JOIN subcategory sc ON sc.Id = sm.SubcategoryId
 --LEFT JOIN category c ON c.Id = sc.CategoryId
